@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ug4c1x711rn5"]
+
+[ext_resource type="Texture2D" uid="uid://doti2i6wt6280" path="res://Assets/Environment/sand.jpg" id="1_bdb67"]
+[ext_resource type="PackedScene" uid="uid://c6v03feqk1tb3" path="res://Scenes/Player/player.tscn" id="2_3cp8h"]
+[ext_resource type="PackedScene" uid="uid://dw68x47bbd258" path="res://Scenes/Player/player_camera.tscn" id="3_jiv1g"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_affgf"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x1bao"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6ytfk"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wbn7u"]
+
+[node name="TestWorld" type="Node2D"]
+y_sort_enabled = true
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+
+[node name="TopLeftX" type="CollisionShape2D" parent="WorldBoundaries"]
+shape = SubResource("WorldBoundaryShape2D_affgf")
+
+[node name="TopLeftY" type="CollisionShape2D" parent="WorldBoundaries"]
+shape = SubResource("WorldBoundaryShape2D_x1bao")
+
+[node name="BottomRightX" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1600, 1152)
+shape = SubResource("WorldBoundaryShape2D_6ytfk")
+
+[node name="BottomRightY" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(1600, 1152)
+shape = SubResource("WorldBoundaryShape2D_wbn7u")
+
+[node name="Sand" type="Sprite2D" parent="."]
+texture_repeat = 3
+texture = ExtResource("1_bdb67")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1600, 1152)
+
+[node name="Player" parent="." instance=ExtResource("2_3cp8h")]
+position = Vector2(223, 214)
+
+[node name="PlayerCamera" parent="Player" instance=ExtResource("3_jiv1g")]
+
+[node name="BottomRight" parent="Player/PlayerCamera/Positions" index="1"]
+position = Vector2(1600, 1152)
+
+[editable path="Player/PlayerCamera"]

@@ -53,6 +53,7 @@ func _play_animation(anim_name: String) -> void:
 
 func _hurt(damage: int) -> void:
 	health -= damage
+	Hud.set_health(health)
 	if health <= 0:
 		get_tree().reload_current_scene()
 

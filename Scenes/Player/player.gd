@@ -39,7 +39,7 @@ func _handle_animations() -> void:
 
 	if direction.x == 0:
 		return
-	sprite.flip_h = direction.x < 0
+	sprite.flip_h = (direction.x < 0)
 
 
 func _play_animation(anim_name: String) -> void:

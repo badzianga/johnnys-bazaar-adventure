@@ -1,7 +1,7 @@
 extends Node
 
 
-const WAVE_TIMES: Array[int] = [0, 5, 5, 10, 10, 20]
+const WAVE_TIMES: Array[int] = [0, 100, 5, 10, 10, 20]
 const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")
 

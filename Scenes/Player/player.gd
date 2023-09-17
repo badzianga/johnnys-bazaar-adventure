@@ -5,7 +5,9 @@ extends CharacterBody2D
 
 var health := 10
 var direction := Vector2.ZERO
+var current_animation: String
 
+@onready var animation_player := $Sprite2D/AnimationPlayer
 @onready var sprite := $Sprite2D
 
 
@@ -17,6 +19,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	_handle_movement()
+	_handle_animations()
 
 
 func _handle_movement() -> void:
@@ -26,6 +29,26 @@ func _handle_movement() -> void:
 	velocity = direction.normalized() * speed
 
 	move_and_slide()
+
+
+func _handle_animations() -> void:
+	if direction:
+		_play_animation("walk")
+	else:
+		_play_animation("idle")
+
+	if direction.x == 0:
+		return
+	sprite.flip_h = direction.x < 0
+
+
+func _play_animation(anim_name: String) -> void:
+	if current_animation == anim_name:
+		return
+	animation_player.play("RESET")
+	await animation_player.animation_finished
+	animation_player.play(anim_name)
+	current_animation = anim_name 
 
 
 func _hurt(damage: int) -> void:

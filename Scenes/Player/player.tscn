@@ -20,10 +20,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -146)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -47,34 +59,47 @@ tracks/0/keys = {
 "values": [0.0, 0.261799, 0.0, -0.261799]
 }
 
-[sub_resource type="Animation" id="Animation_avocg"]
-resource_name = "flip"
-length = 0.1
+[sub_resource type="Animation" id="Animation_qy64q"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.25, 0.25), Vector2(-0.25, 0.25)]
+"values": [Vector2(0, -146), Vector2(0, -124)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(0.25, 0.225)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gue3i"]
 _data = {
 "RESET": SubResource("Animation_3msth"),
-"flip": SubResource("Animation_avocg"),
+"idle": SubResource("Animation_qy64q"),
 "walk": SubResource("Animation_yx37o")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nxjw"]
-size = Vector2(94, 48)
+size = Vector2(218, 124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pura3"]
-size = Vector2(236, 120)
+size = Vector2(218, 124)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -82,10 +107,9 @@ motion_mode = 1
 script = ExtResource("1_x8cn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(12, 2)
+position = Vector2(0, -146)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_tt238")
-flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
@@ -95,7 +119,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13, 8)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_5nxjw")
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -103,7 +127,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(16, 28)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_pura3")
 debug_color = Color(0.960784, 0.168627, 0.247059, 0.419608)
 

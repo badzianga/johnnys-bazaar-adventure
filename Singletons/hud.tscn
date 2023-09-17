@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://r20smt45xgmu"]
+[gd_scene load_steps=4 format=3 uid="uid://r20smt45xgmu"]
 
 [ext_resource type="Script" path="res://Singletons/hud.gd" id="1_228s5"]
+[ext_resource type="Texture2D" uid="uid://do1r17rru7ixg" path="res://Assets/HUD/health_bg.png" id="2_4di4x"]
+[ext_resource type="Texture2D" uid="uid://ripu4d6ojmd2" path="res://Assets/HUD/health_bar.png" id="3_2h43a"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_228s5")
@@ -13,20 +15,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HealthBar" type="ProgressBar" parent="Control"]
-modulate = Color(1, 0, 0, 1)
+[node name="HealthBar" type="TextureProgressBar" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -280.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 64.0
+offset_left = -336.0
+offset_top = 16.0
+offset_right = 297.0
+offset_bottom = 136.0
 grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-step = 1.0
-show_percentage = false
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("2_4di4x")
+texture_progress = ExtResource("3_2h43a")
 
 [node name="TimeLabel" type="Label" parent="Control"]
 layout_mode = 1

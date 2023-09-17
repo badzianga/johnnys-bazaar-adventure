@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2tkw3noycke4"]
+
+[ext_resource type="Script" path="res://Scenes/DialogueSystem/dialogue_system.gd" id="1_430ix"]
+[ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Player/player.png" id="1_ceq13"]
+
+[sub_resource type="Animation" id="Animation_t7bfj"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(956, 140), Vector2(956, 160)]
+}
+
+[sub_resource type="Animation" id="Animation_pnfj1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(956, 140)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74lae"]
+_data = {
+"RESET": SubResource("Animation_pnfj1"),
+"move": SubResource("Animation_t7bfj")
+}
+
+[node name="DialogueSystem" type="CanvasLayer"]
+script = ExtResource("1_430ix")
+_dialog_path = "res://Assets/Dialogs/test_dialog.json"
+
+[node name="Portrait" type="TextureRect" parent="."]
+offset_left = 48.0
+offset_top = 184.0
+offset_right = 856.0
+offset_bottom = 1248.0
+texture = ExtResource("1_ceq13")
+expand_mode = 1
+flip_h = true
+
+[node name="Box" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -250.0
+offset_right = -300.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.862745, 0.666667, 0.313726, 1)
+
+[node name="NameLabel" type="RichTextLabel" parent="Box"]
+layout_mode = 0
+offset_right = 996.0
+offset_bottom = 62.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Name"
+
+[node name="TextLabel" type="RichTextLabel" parent="Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 62.0
+offset_right = 996.0
+offset_bottom = 198.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Text"
+
+[node name="Indicator" type="Polygon2D" parent="Box"]
+position = Vector2(956, 140)
+polygon = PackedVector2Array(16, 0, -16, 0, 0, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Box/Indicator"]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_74lae")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

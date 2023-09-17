@@ -35,16 +35,17 @@ position = Vector2(1600, 1152)
 shape = SubResource("WorldBoundaryShape2D_wbn7u")
 
 [node name="Sand" type="Sprite2D" parent="."]
-texture_repeat = 3
+texture_repeat = 2
 texture = ExtResource("1_bdb67")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1600, 1152)
 
 [node name="Player" parent="." instance=ExtResource("2_3cp8h")]
-position = Vector2(223, 214)
+position = Vector2(512, 384)
 
 [node name="PlayerCamera" parent="Player" instance=ExtResource("3_jiv1g")]
+texture_filter = 6
 
 [node name="BottomRight" parent="Player/PlayerCamera/Positions" index="1"]
 position = Vector2(1600, 1152)

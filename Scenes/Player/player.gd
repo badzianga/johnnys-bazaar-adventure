@@ -6,6 +6,8 @@ extends CharacterBody2D
 var health := 10
 var direction := Vector2.ZERO
 
+@onready var sprite := $Sprite2D
+
 
 func _ready() -> void:
 	GameController.player = self
@@ -20,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 func _handle_movement() -> void:
 	direction.x = Input.get_axis("left", "right")
 	direction.y = Input.get_axis("up", "down")
-	
+
 	velocity = direction.normalized() * speed
 
 	move_and_slide()

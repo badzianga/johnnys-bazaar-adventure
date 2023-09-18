@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://ug4c1x711rn5"]
 
-[ext_resource type="Texture2D" uid="uid://doti2i6wt6280" path="res://Assets/Environment/sand.jpg" id="1_bdb67"]
+[ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="1_0vgr8"]
 [ext_resource type="PackedScene" uid="uid://biykq7yoihixd" path="res://Scenes/Misc/enemy_spawner.tscn" id="1_cty63"]
 [ext_resource type="PackedScene" uid="uid://c6v03feqk1tb3" path="res://Scenes/Player/player.tscn" id="2_3cp8h"]
 [ext_resource type="PackedScene" uid="uid://dw68x47bbd258" path="res://Scenes/Player/player_camera.tscn" id="3_jiv1g"]
@@ -65,14 +65,14 @@ spawn_delay = 2
 y_sort_enabled = true
 
 [node name="DarkenLight" type="DirectionalLight2D" parent="."]
+enabled = false
 energy = 0.1
 blend_mode = 1
 
 [node name="Sand" type="Sprite2D" parent="."]
 texture_repeat = 2
-texture = ExtResource("1_bdb67")
+texture = ExtResource("1_0vgr8")
 centered = false
-region_enabled = true
 region_rect = Rect2(0, 0, 2500, 2500)
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]

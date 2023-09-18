@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd1w8e3nygtfu"
-path="res://.godot/imported/scorpio.png-43b16397c39e4748580cf8f256ab8d5f.ctex"
+uid="uid://bir25hs58tmi4"
+path="res://.godot/imported/dog.png-c6ebf24cae1bde41c1e95bb92d48b1b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/scorpio.png"
-dest_files=["res://.godot/imported/scorpio.png-43b16397c39e4748580cf8f256ab8d5f.ctex"]
+source_file="res://Assets/Entities/dog.png"
+dest_files=["res://.godot/imported/dog.png-c6ebf24cae1bde41c1e95bb92d48b1b5.ctex"]
 
 [params]
 

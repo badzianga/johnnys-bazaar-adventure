@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pir44mu6ljs"
-path="res://.godot/imported/mummy.png-4a6ca9dad5de9d81b89dbc0d34faca8f.ctex"
+uid="uid://c1gnaq2a5ofm0"
+path="res://.godot/imported/snake.png-3a6184da26824981a7a36d941ae7b16a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/mummy.png"
-dest_files=["res://.godot/imported/mummy.png-4a6ca9dad5de9d81b89dbc0d34faca8f.ctex"]
+source_file="res://Assets/Entities/snake.png"
+dest_files=["res://.godot/imported/snake.png-3a6184da26824981a7a36d941ae7b16a.ctex"]
 
 [params]
 

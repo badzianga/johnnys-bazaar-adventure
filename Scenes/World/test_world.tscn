@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ug4c1x711rn5"]
+[gd_scene load_steps=19 format=3 uid="uid://ug4c1x711rn5"]
 
 [ext_resource type="Texture2D" uid="uid://doti2i6wt6280" path="res://Assets/Environment/sand.jpg" id="1_bdb67"]
+[ext_resource type="PackedScene" uid="uid://biykq7yoihixd" path="res://Scenes/Misc/enemy_spawner.tscn" id="1_cty63"]
 [ext_resource type="PackedScene" uid="uid://c6v03feqk1tb3" path="res://Scenes/Player/player.tscn" id="2_3cp8h"]
 [ext_resource type="PackedScene" uid="uid://dw68x47bbd258" path="res://Scenes/Player/player_camera.tscn" id="3_jiv1g"]
+[ext_resource type="Script" path="res://Scenes/Misc/wave_info.gd" id="3_qgjlm"]
 [ext_resource type="PackedScene" uid="uid://dwc0fyvxk8ev" path="res://Scenes/Enemies/snake.tscn" id="4_n4gcb"]
 [ext_resource type="PackedScene" uid="uid://br3tdsrh84ugg" path="res://Scenes/Enemies/dog.tscn" id="5_c3ghc"]
 [ext_resource type="PackedScene" uid="uid://bqeftpt6velw6" path="res://Scenes/Enemies/mummy.tscn" id="6_4cn3h"]
@@ -19,8 +21,55 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wbn7u"]
 
+[sub_resource type="Resource" id="Resource_ebqoo"]
+script = ExtResource("3_qgjlm")
+wave_number = 1
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_m14qh"]
+script = ExtResource("3_qgjlm")
+wave_number = 2
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_420y0"]
+script = ExtResource("3_qgjlm")
+wave_number = 3
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_o6v00"]
+script = ExtResource("3_qgjlm")
+wave_number = 4
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 3
+spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_1rxif"]
+script = ExtResource("3_qgjlm")
+wave_number = 4
+enemy = ExtResource("6_4cn3h")
+spawn_chance = 0.4
+amount = 1
+spawn_delay = 2
+
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
+
+[node name="Sand" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_bdb67")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2500, 2500)
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 
@@ -38,34 +87,16 @@ shape = SubResource("WorldBoundaryShape2D_6ytfk")
 position = Vector2(2496, 2496)
 shape = SubResource("WorldBoundaryShape2D_wbn7u")
 
-[node name="Sand" type="Sprite2D" parent="."]
-texture_repeat = 2
-texture = ExtResource("1_bdb67")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 2500, 2500)
+[node name="EnemySpawner" parent="." instance=ExtResource("1_cty63")]
+waves = Array[ExtResource("3_qgjlm")]([SubResource("Resource_ebqoo"), SubResource("Resource_m14qh"), SubResource("Resource_420y0"), SubResource("Resource_o6v00"), SubResource("Resource_1rxif")])
 
 [node name="Player" parent="." instance=ExtResource("2_3cp8h")]
-position = Vector2(432, 360)
+position = Vector2(1250, 1250)
 
 [node name="PlayerCamera" parent="Player" instance=ExtResource("3_jiv1g")]
-texture_filter = 6
-position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
 [node name="BottomRight" parent="Player/PlayerCamera/Positions" index="1"]
 position = Vector2(2496, 2496)
-
-[node name="Snake" parent="." instance=ExtResource("4_n4gcb")]
-position = Vector2(1456, 880)
-
-[node name="Dog" parent="." instance=ExtResource("5_c3ghc")]
-position = Vector2(784, 1760)
-
-[node name="Mummy" parent="." instance=ExtResource("6_4cn3h")]
-position = Vector2(1360, 1480)
-
-[node name="Scorpio" parent="." instance=ExtResource("7_ph8w4")]
-position = Vector2(672, 1200)
 
 [editable path="Player/PlayerCamera"]

@@ -31,6 +31,7 @@ max_value = 10.0
 value = 10.0
 texture_under = ExtResource("2_4di4x")
 texture_progress = ExtResource("3_2h43a")
+texture_progress_offset = Vector2(44, 38)
 
 [node name="TimeLabel" type="Label" parent="Control"]
 layout_mode = 1
@@ -42,6 +43,7 @@ offset_top = 16.0
 offset_right = 640.0
 offset_bottom = 69.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "0"
 horizontal_alignment = 1
@@ -57,5 +59,6 @@ offset_top = 72.0
 offset_right = -25.0
 offset_bottom = 125.0
 grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Wave: 0"

@@ -7,6 +7,7 @@ const WorldScene := preload("res://Scenes/World/test_world.tscn")
 
 var current_wave := 1
 var player: CharacterBody2D
+var enemies: Array[CharacterBody2D]
 
 @onready var timer := $Timer
 @onready var music_player := $MusicPlayer

@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-	_health_component.health_depleted.connect(_on_health_changed)
+	_health_component.health_depleted.connect(_on_health_depleted)
 
 
 func _physics_process(_delta: float) -> void:
@@ -25,5 +25,6 @@ func _handle_animation() -> void:
 		_animation_player.play("walk_right")
 
 
-func _on_health_changed() -> void:
+func _on_health_depleted() -> void:
+	GameController.enemies.erase(self)
 	queue_free()

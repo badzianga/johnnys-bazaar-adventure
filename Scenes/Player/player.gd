@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 
-@export var speed = 320.0
+const LightOrb := preload("res://Scenes/Attacks/light_orb.tscn")
 
-var health := 10
+@export var speed = 320.0
+@export var health := 10
+
 var direction := Vector2.ZERO
 var current_animation: String
 
@@ -51,12 +53,16 @@ func _play_animation(anim_name: String) -> void:
 	current_animation = anim_name 
 
 
-func _hurt(damage: int) -> void:
-	health -= damage
+func _on_hurtbox_area_entered(hitbox: Area2D) -> void:
+	health -= hitbox.damage
 	Hud.set_health(health)
 	if health <= 0:
 		get_tree().reload_current_scene()
 
 
-func _on_hurtbox_area_entered(hitbox: Area2D) -> void:
-	_hurt(hitbox.damage)
+func _on_shoot_timer_timeout() -> void:
+	var light_orb := LightOrb.instantiate()
+	light_orb.global_position = global_position
+	var random_enemy: CharacterBody2D = GameController.enemies.pick_random()
+	light_orb.direction = global_position.direction_to(random_enemy.global_position)
+	get_tree().get_root().add_child(light_orb)

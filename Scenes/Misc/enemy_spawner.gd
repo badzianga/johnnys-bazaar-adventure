@@ -34,6 +34,7 @@ func _spawn_enemies(wave_info: WaveInfo) -> void:
 		var pos := _get_random_position(corners)
 		enemy.global_position = pos
 		add_child(enemy)
+		GameController.enemies.append(enemy)  # used for enemy position when attacking
 		enemy_counter += 1
 
 

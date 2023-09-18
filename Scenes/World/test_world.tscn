@@ -64,6 +64,10 @@ spawn_delay = 2
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
 
+[node name="DarkenLight" type="DirectionalLight2D" parent="."]
+energy = 0.1
+blend_mode = 1
+
 [node name="Sand" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("1_bdb67")

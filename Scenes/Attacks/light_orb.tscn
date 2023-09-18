@@ -57,7 +57,7 @@ _data = {
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_bochs")
-_penetration = 3
+_speed = 200.0
 damage = 6
 
 [node name="Light" type="PointLight2D" parent="."]

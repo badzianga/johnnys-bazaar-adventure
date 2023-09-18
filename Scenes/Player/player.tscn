@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6v03feqk1tb3"]
+[gd_scene load_steps=11 format=3 uid="uid://c6v03feqk1tb3"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_x8cn5"]
 [ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Entities/player.png" id="2_m04sv"]
@@ -103,6 +103,12 @@ height = 220.0
 radius = 60.0
 height = 220.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8pm1"]
+radius = 96.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8vayn"]
+radius = 320.0
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
@@ -138,5 +144,21 @@ debug_color = Color(0.960784, 0.168627, 0.247059, 0.419608)
 wait_time = 1.5
 autostart = true
 
+[node name="LootCollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LootCollectArea"]
+shape = SubResource("CircleShape2D_g8pm1")
+
+[node name="LootGrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LootGrabArea"]
+shape = SubResource("CircleShape2D_8vayn")
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="area_entered" from="LootCollectArea" to="." method="_on_loot_collect_area_entered"]
+[connection signal="area_entered" from="LootGrabArea" to="." method="_on_loot_grab_area_entered"]

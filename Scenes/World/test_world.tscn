@@ -27,7 +27,7 @@ wave_number = 1
 enemy = ExtResource("7_ph8w4")
 spawn_chance = 1.0
 amount = 2
-spawn_delay = 1
+spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_m14qh"]
 script = ExtResource("3_qgjlm")
@@ -64,16 +64,13 @@ spawn_delay = 2
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
 
-[node name="DarkenLight" type="DirectionalLight2D" parent="."]
-enabled = false
-energy = 0.1
-blend_mode = 1
-
 [node name="Sand" type="Sprite2D" parent="."]
 texture_repeat = 2
 texture = ExtResource("1_0vgr8")
 centered = false
 region_rect = Rect2(0, 0, 2500, 2500)
+
+[node name="Loot" type="Node2D" parent="." groups=["Loot"]]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 

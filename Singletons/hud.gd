@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var health_bar := $Control/HealthBar
 @onready var time_label := $Control/TimeLabel
 @onready var wave_label := $Control/WaveLabel
+@onready var coins_label := $Control/CoinsLabel
 
 
 func set_health(health: int) -> void:
@@ -20,3 +21,7 @@ func set_time(time: int) -> void:
 
 func set_wave(wave: int) -> void:
 	wave_label.text = "Wave: " + str(wave)
+
+
+func set_coins(coins: int) -> void:
+	coins_label.text = "Coins: " + str(coins)

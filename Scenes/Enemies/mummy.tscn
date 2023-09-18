@@ -12,7 +12,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x1rh6"]
 resource_local_to_scene = true
 shader = ExtResource("2_fufu6")
-shader_parameter/flash_state = null
+shader_parameter/flash_state = 0.0
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001
@@ -110,7 +110,6 @@ shape = SubResource("CapsuleShape2D_gvkd3")
 [node name="HealthComponent" parent="." instance=ExtResource("3_fp12j")]
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_awtdv")]
-_speed = 160.0
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component", "collision_shape") instance=ExtResource("5_75867")]
 health_component = NodePath("../HealthComponent")

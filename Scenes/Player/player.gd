@@ -8,6 +8,7 @@ const LightOrb := preload("res://Scenes/Attacks/light_orb.tscn")
 
 var direction := Vector2.ZERO
 var current_animation: String
+var coins := 0
 
 @onready var animation_player := $Sprite2D/AnimationPlayer
 @onready var sprite := $Sprite2D
@@ -17,6 +18,7 @@ func _ready() -> void:
 	GameController.player = self
 	Hud.set_max_health(health)
 	Hud.set_health(health)
+	Hud.set_coins(coins)
 
 
 func _physics_process(_delta: float) -> void:
@@ -66,3 +68,12 @@ func _on_shoot_timer_timeout() -> void:
 	var random_enemy: CharacterBody2D = GameController.enemies.pick_random()
 	light_orb.direction = global_position.direction_to(random_enemy.global_position)
 	get_tree().get_root().add_child(light_orb)
+
+
+func _on_loot_collect_area_entered(coin: Coin) -> void:
+	coins += coin.collect()
+	Hud.set_coins(coins)
+
+
+func _on_loot_grab_area_entered(coin: Coin) -> void:
+	coin.grab()

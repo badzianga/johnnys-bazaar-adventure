@@ -12,7 +12,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0y1mb"]
 resource_local_to_scene = true
 shader = ExtResource("2_jfb4v")
-shader_parameter/flash_state = null
+shader_parameter/flash_state = 0.0
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001
@@ -121,6 +121,7 @@ height = 96.0
 [node name="Scorpio" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_00eur")
+max_health = 4
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0y1mb")
@@ -144,7 +145,6 @@ shape = SubResource("CapsuleShape2D_gvkd3")
 [node name="HealthComponent" parent="." instance=ExtResource("3_c4ad0")]
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_jlth6")]
-_speed = 160.0
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component", "collision_shape") instance=ExtResource("5_qcot7")]
 health_component = NodePath("../HealthComponent")

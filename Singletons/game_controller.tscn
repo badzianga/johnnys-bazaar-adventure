@@ -13,5 +13,6 @@ one_shot = true
 stream = ExtResource("2_n1v74")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

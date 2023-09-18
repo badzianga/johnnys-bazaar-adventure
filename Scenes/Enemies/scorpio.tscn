@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bubdrjydtjbiv"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_00eur"]
-[ext_resource type="Texture2D" uid="uid://cd1w8e3nygtfu" path="res://Assets/Player/scorpio.png" id="2_agkvs"]
+[ext_resource type="Texture2D" uid="uid://cd1w8e3nygtfu" path="res://Assets/Entities/scorpio.png" id="2_d751p"]
 [ext_resource type="PackedScene" uid="uid://dix3ti8a5xl3s" path="res://Scenes/EnemyComponents/health_component.tscn" id="3_c4ad0"]
 [ext_resource type="PackedScene" uid="uid://c3cnagatm70qu" path="res://Scenes/EnemyComponents/velocity_component.tscn" id="4_jlth6"]
 [ext_resource type="PackedScene" uid="uid://et20dn5wcy5r" path="res://Scenes/EnemyComponents/hurtbox.tscn" id="5_qcot7"]
@@ -118,7 +118,7 @@ script = ExtResource("1_00eur")
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("2_agkvs")
+texture = ExtResource("2_d751p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 root_node = NodePath("../..")

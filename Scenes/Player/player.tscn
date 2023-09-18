@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c6v03feqk1tb3"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_x8cn5"]
-[ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Player/player.png" id="2_tt238"]
+[ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Entities/player.png" id="2_m04sv"]
 
 [sub_resource type="Animation" id="Animation_3msth"]
 length = 0.001
@@ -111,7 +111,7 @@ script = ExtResource("1_x8cn5")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -146)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_tt238")
+texture = ExtResource("2_m04sv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")

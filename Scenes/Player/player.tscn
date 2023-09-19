@@ -140,9 +140,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hg2oy")
 debug_color = Color(0.960784, 0.168627, 0.247059, 0.419608)
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootCooldown" type="Timer" parent="."]
 wait_time = 1.5
-autostart = true
+
+[node name="VolleyTimer" type="Timer" parent="ShootCooldown"]
+wait_time = 0.05
+one_shot = true
 
 [node name="LootCollectArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -159,6 +162,7 @@ collision_mask = 32
 shape = SubResource("CircleShape2D_8vayn")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
+[connection signal="timeout" from="ShootCooldown/VolleyTimer" to="." method="_on_volley_timer_timeout"]
 [connection signal="area_entered" from="LootCollectArea" to="." method="_on_loot_collect_area_entered"]
 [connection signal="area_entered" from="LootGrabArea" to="." method="_on_loot_grab_area_entered"]

@@ -1,6 +1,5 @@
 extends Node
 
-var bought: Array[StringName]
 
 var upgrades := [
 	{
@@ -9,6 +8,7 @@ var upgrades := [
 		"Price": 10,
 		"Icon": "djed.png",
 		"Requirement": "",
+		"Id": 0,
 	},
 	{
 		"Name": "Extra Djed I",
@@ -16,6 +16,7 @@ var upgrades := [
 		"Price": 20,
 		"Icon": "djed.png",
 		"Requirement": "Djed",
+		"Id": 1,
 	},
 	{
 		"Name": "Scroll of Ra - damage I",
@@ -23,6 +24,7 @@ var upgrades := [
 		"Price": 5,
 		"Icon": "ra_scroll.png",
 		"Requirement": "",
+		"Id": 2,
 	},
 	{
 		"Name": "Scroll of Ra - damage II",
@@ -30,6 +32,7 @@ var upgrades := [
 		"Price": 15,
 		"Icon": "ra_scroll.png",
 		"Requirement": "Scroll of Ra - damage I",
+		"Id": 3,
 	},
 	{
 		"Name": "Scroll of Ra - damage III",
@@ -37,6 +40,7 @@ var upgrades := [
 		"Price": 50,
 		"Icon": "ra_scroll.png",
 		"Requirement": "Scroll of Ra - damage II",
+		"Id": 4,
 	},
 	{
 		"Name": "Scroll of Ra - cooldown I",
@@ -44,6 +48,7 @@ var upgrades := [
 		"Price": 5,
 		"Icon": "ra_scroll.png",
 		"Requirement": "",
+		"Id": 5,
 	},
 	{
 		"Name": "Scroll of Ra - extra orb I",
@@ -51,6 +56,7 @@ var upgrades := [
 		"Price": 10,
 		"Icon": "ra_scroll.png",
 		"Requirement": "",
+		"Id": 6,
 	},
 	{
 		"Name": "Ankh",
@@ -58,5 +64,6 @@ var upgrades := [
 		"Price": 10,
 		"Icon": "ankh.png",
 		"Requirement": "",
+		"Id": 7,
 	},
 ]

@@ -20,10 +20,29 @@ layout_mode = 0
 offset_right = 1600.0
 offset_bottom = 128.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Jojo's Bazaar Adventure"
+theme_override_font_sizes/font_size = 56
+text = "Bazaar"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 256.0
+offset_bottom = 88.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Coins: 0"
+
+[node name="NextWaveButton" type="Button" parent="Background"]
+offset_left = 1344.0
+offset_top = 40.0
+offset_right = 1560.0
+offset_bottom = 98.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+text = "NEXT WAVE"
 
 [node name="Container" type="HBoxContainer" parent="Background"]
 custom_minimum_size = Vector2(1472, 600)
@@ -33,3 +52,5 @@ offset_top = 128.0
 offset_right = 1536.0
 offset_bottom = 728.0
 theme_override_constants/separation = 90
+
+[connection signal="pressed" from="Background/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

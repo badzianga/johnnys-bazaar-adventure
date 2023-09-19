@@ -9,6 +9,7 @@ var current_wave := 1
 var coins := 0
 var player: CharacterBody2D
 var enemies: Array[Enemy]
+var purchased_upgrades: Array[StringName]
 
 @onready var timer := $Timer
 @onready var music_player := $MusicPlayer
@@ -34,6 +35,27 @@ func back_to_world() -> void:
 	Hud.set_wave(current_wave)
 	Hud.visible = true
 	_reset_timer()
+
+
+func upgrade_character(item_id: int) -> void:
+	# WARNING! Stupid code, ignore that please
+	match item_id:
+		0:
+			PlayerUpgrades.djeds += 1
+		1:
+			PlayerUpgrades.djeds += 1
+		2:
+			PlayerUpgrades.extra_damage += 5
+		3:
+			PlayerUpgrades.extra_damage += 10
+		4:
+			PlayerUpgrades.extra_damage += 15
+		5:
+			PlayerUpgrades.cooldown_reduce_sec += 0.1
+		6:
+			PlayerUpgrades.extra_bullets += 1
+		7:
+			PlayerUpgrades.max_health += 5
 
 
 func _on_timer_timeout() -> void:

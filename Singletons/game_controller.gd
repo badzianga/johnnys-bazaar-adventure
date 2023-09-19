@@ -31,6 +31,7 @@ func _reset_timer() -> void:
 
 
 func back_to_world() -> void:
+	enemies.clear()
 	get_tree().change_scene_to_packed(WorldScene)
 	Hud.set_wave(current_wave)
 	Hud.visible = true

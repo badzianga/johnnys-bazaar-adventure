@@ -139,6 +139,8 @@ height = 96.0
 motion_mode = 1
 script = ExtResource("1_00eur")
 max_health = 4
+gold_min = 1
+gold_max = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0y1mb")

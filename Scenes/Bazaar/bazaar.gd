@@ -22,7 +22,7 @@ func _create_option() -> void:
 func _on_item_purchased(item_option: ItemOption) -> void:
 	GameController.coins -= item_option.price
 	GameController.purchased_upgrades.append(item_option.item_name)
-	GameController.upgrade_character(item_option.item_name)
+	GameController.upgrade_character(item_option.item_id)
 	coins_label.text = "Coins: " + str(GameController.coins)
 	item_option.delete()
 

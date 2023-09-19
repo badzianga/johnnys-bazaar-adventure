@@ -4,6 +4,7 @@ extends TextureRect
 
 signal item_purchased(item_option: ItemOption)
 
+var item_id: int
 var item_name: StringName
 var price: int
 
@@ -14,6 +15,7 @@ func set_info(item_info: Dictionary) -> void:
 	$Name.text = item_name
 	$Description.text = item_info["Description"]
 	price = item_info["Price"]
+	item_id = item_info["Id"]
 	$Price.text += str(price)
 
 

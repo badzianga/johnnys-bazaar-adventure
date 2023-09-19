@@ -23,6 +23,8 @@ buses/default_bus_layout="res://Resources/Buses/bus_layout.tres"
 
 Hud="*res://Singletons/hud.tscn"
 GameController="*res://Singletons/game_controller.tscn"
+PlayerUpgrades="*res://Singletons/player_upgrades.gd"
+Upgrades="*res://Singletons/upgrades.gd"
 
 [display]
 

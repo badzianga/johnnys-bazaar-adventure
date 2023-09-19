@@ -1,57 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgx73p37ftjwh"]
+[gd_scene load_steps=3 format=3 uid="uid://dgx73p37ftjwh"]
 
 [ext_resource type="Script" path="res://Scenes/Bazaar/bazaar.gd" id="1_tprnu"]
+[ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="2_v8e4w"]
 
 [node name="Bazaar" type="CanvasLayer"]
 script = ExtResource("1_tprnu")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.243137, 0.243137, 0.243137, 1)
+texture = ExtResource("2_v8e4w")
+expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TitleLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 128.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Jojo's Bazaar Adventure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="HBoxContainer" parent="Background"]
+custom_minimum_size = Vector2(1472, 600)
+layout_mode = 0
 offset_left = 64.0
-offset_top = 64.0
-offset_right = -64.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 2
-stretch_mode = 4
-
-[node name="SkipAd" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -64.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 47.0
-grow_horizontal = 0
-text = "You can skip ad in 5"
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
-[node name="Button" type="Button" parent="."]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -19.0
-offset_top = 30.0
-offset_right = -7.0
-offset_bottom = 42.0
-grow_horizontal = 0
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+offset_top = 128.0
+offset_right = 1536.0
+offset_bottom = 728.0
+theme_override_constants/separation = 90

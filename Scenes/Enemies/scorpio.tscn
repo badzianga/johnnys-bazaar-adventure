@@ -148,6 +148,7 @@ texture = ExtResource("2_d751p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 root_node = NodePath("../..")
+autoplay = "RESET"
 libraries = {
 "": SubResource("AnimationLibrary_f1rlc")
 }

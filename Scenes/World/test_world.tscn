@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ug4c1x711rn5"]
+[gd_scene load_steps=20 format=3 uid="uid://ug4c1x711rn5"]
 
 [ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="1_0vgr8"]
 [ext_resource type="PackedScene" uid="uid://biykq7yoihixd" path="res://Scenes/Misc/enemy_spawner.tscn" id="1_cty63"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://br3tdsrh84ugg" path="res://Scenes/Enemies/dog.tscn" id="5_c3ghc"]
 [ext_resource type="PackedScene" uid="uid://bqeftpt6velw6" path="res://Scenes/Enemies/mummy.tscn" id="6_4cn3h"]
 [ext_resource type="PackedScene" uid="uid://bubdrjydtjbiv" path="res://Scenes/Enemies/scorpio.tscn" id="7_ph8w4"]
+[ext_resource type="PackedScene" uid="uid://tmg6ly4wb3ha" path="res://Scenes/Djed/djed.tscn" id="10_vdg70"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_affgf"]
 normal = Vector2(1, 0)
@@ -103,5 +104,8 @@ position_smoothing_speed = 2.0
 
 [node name="BottomRight" parent="Player/PlayerCamera/Positions" index="1"]
 position = Vector2(2496, 2496)
+
+[node name="Djed" parent="." instance=ExtResource("10_vdg70")]
+position = Vector2(1536, 1216)
 
 [editable path="Player/PlayerCamera"]

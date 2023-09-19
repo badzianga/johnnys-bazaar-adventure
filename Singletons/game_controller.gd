@@ -6,8 +6,9 @@ const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")
 
 var current_wave := 1
+var coins := 0
 var player: CharacterBody2D
-var enemies: Array[CharacterBody2D]
+var enemies: Array[Enemy]
 
 @onready var timer := $Timer
 @onready var music_player := $MusicPlayer
@@ -31,9 +32,13 @@ func _reset_timer() -> void:
 func back_to_world() -> void:
 	get_tree().change_scene_to_packed(WorldScene)
 	Hud.set_wave(current_wave)
+	Hud.visible = true
 	_reset_timer()
 
 
 func _on_timer_timeout() -> void:
+	# go to bazaar
 	current_wave += 1
+	coins = player.coins
+	Hud.visible = false
 	get_tree().change_scene_to_packed(BazaarScene)

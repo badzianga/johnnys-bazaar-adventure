@@ -15,11 +15,9 @@ func _physics_process(delta: float) -> void:
 
 
 func grab() -> void:
-	print("grabbed")
 	set_physics_process(true)
 
 
 func collect() -> int:
-	print("collected")
 	queue_free()
 	return value

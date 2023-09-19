@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 
-const LightOrb := preload("res://Scenes/Attacks/light_orb.tscn")
+const LightOrbScene := preload("res://Scenes/Attacks/light_orb.tscn")
 
 @export var speed = 320.0
 @export var health := 10
 
 var direction := Vector2.ZERO
 var current_animation: String
-var coins := 0
+var coins: int
 
 @onready var animation_player := $Sprite2D/AnimationPlayer
 @onready var sprite := $Sprite2D
@@ -16,6 +16,7 @@ var coins := 0
 
 func _ready() -> void:
 	GameController.player = self
+	coins = GameController.coins
 	Hud.set_max_health(health)
 	Hud.set_health(health)
 	Hud.set_coins(coins)
@@ -63,10 +64,13 @@ func _on_hurtbox_area_entered(hitbox: Area2D) -> void:
 
 
 func _on_shoot_timer_timeout() -> void:
-	var light_orb := LightOrb.instantiate()
+	var light_orb := LightOrbScene.instantiate()
 	light_orb.global_position = global_position
-	var random_enemy: CharacterBody2D = GameController.enemies.pick_random()
-	light_orb.direction = global_position.direction_to(random_enemy.global_position)
+	if len(GameController.enemies) > 0:
+		var random_enemy: Enemy = GameController.enemies.pick_random()
+		light_orb.direction = global_position.direction_to(random_enemy.global_position)
+	else:
+		light_orb.direction = Vector2.from_angle(randf_range(0.0, TAU))
 	get_tree().get_root().add_child(light_orb)
 
 

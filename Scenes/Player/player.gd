@@ -87,7 +87,7 @@ func _on_hurtbox_area_entered(hitbox: Area2D) -> void:
 	health -= hitbox.damage
 	Hud.set_health(health)
 	if health <= 0:
-		get_tree().reload_current_scene()
+		GameController.go_to_result_screen()
 
 
 func _on_shoot_cooldown_timeout() -> void:

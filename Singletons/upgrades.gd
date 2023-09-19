@@ -67,3 +67,5 @@ var upgrades := [
 		"Id": 7,
 	},
 ]
+
+@onready var available_upgrades := upgrades

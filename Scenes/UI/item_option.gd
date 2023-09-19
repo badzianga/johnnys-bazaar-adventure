@@ -9,6 +9,13 @@ var item_name: StringName
 var price: int
 
 
+func display(delayed: bool) -> void:
+	if delayed:
+		$AnimationPlayer.play("add_delayed")
+	else:
+		$AnimationPlayer.play("add")
+
+
 func set_info(item_info: Dictionary) -> void:
 	$Icon.texture = load("res://Assets/Items/" + item_info["Icon"])
 	item_name = item_info["Name"]

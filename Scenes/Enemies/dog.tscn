@@ -82,6 +82,11 @@ height = 170.0
 [node name="Dog" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_8gha7")
+max_health = 16
+speed = 200.0
+damage = 3
+gold_min = 1
+gold_max = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = ExtResource("2_ebf6i")

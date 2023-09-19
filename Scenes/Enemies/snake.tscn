@@ -152,6 +152,10 @@ height = 78.0
 [node name="Snake" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_e67iu")
+speed = 180.0
+damage = 2
+gold_min = 1
+gold_max = 2
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = ExtResource("2_iu1t6")

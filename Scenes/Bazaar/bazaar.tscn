@@ -5,6 +5,7 @@
 
 [node name="Bazaar" type="CanvasLayer"]
 script = ExtResource("1_tprnu")
+metadata/_edit_horizontal_guides_ = [32.0]
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -41,6 +42,7 @@ offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 98.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
 text = "NEXT WAVE"
 

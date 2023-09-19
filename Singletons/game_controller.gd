@@ -4,9 +4,10 @@ extends Node
 const WAVE_TIMES: Array[int] = [0, 30, 30, 35, 40, 50]
 const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")
+const ResultScreenScene := preload("res://Scenes/ResultScreen/result_screen.tscn")
 
 var current_wave := 1
-var coins := 0
+var coins := 999
 var player: CharacterBody2D
 var enemies: Array[Enemy]
 var purchased_upgrades: Array[StringName]
@@ -59,9 +60,35 @@ func upgrade_character(item_id: int) -> void:
 			PlayerUpgrades.max_health += 5
 
 
+func remove_available_upgrade(item_id: int) -> void:
+	var index := 0
+	for item_data in Upgrades.available_upgrades:
+		if item_data["Id"] == item_id:
+			Upgrades.available_upgrades.remove_at(index)
+			break
+		index += 1
+
+
+func go_to_result_screen() -> void:
+	timer.stop()
+	Hud.visible = false
+	get_tree().change_scene_to_packed(ResultScreenScene)
+
+
+func reset_game() -> void:
+	current_wave = 1
+	coins = 0
+	player = null
+	purchased_upgrades.clear()
+	back_to_world()
+	
+
+
 func _on_timer_timeout() -> void:
-	# go to bazaar
 	current_wave += 1
+	if current_wave >= len(WAVE_TIMES):
+		go_to_result_screen()
+	# go to bazaar
 	coins = player.coins
 	Hud.visible = false
 	get_tree().change_scene_to_packed(BazaarScene)

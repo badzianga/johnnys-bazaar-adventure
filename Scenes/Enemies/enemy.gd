@@ -1,6 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
+
 const CoinScene := preload("res://Scenes/Loot/coin.tscn")
 
 @export var max_health := 10
@@ -8,7 +9,6 @@ const CoinScene := preload("res://Scenes/Loot/coin.tscn")
 @export var damage := 1
 @export var gold_min := 0
 @export var gold_max := 1
-
 
 @onready var _sprite := $Sprite
 @onready var _velocity_component := $VelocityComponent as VelocityComponent

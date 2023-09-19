@@ -1,21 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://br3tdsrh84ugg"]
+[gd_scene load_steps=16 format=3 uid="uid://br3tdsrh84ugg"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_8gha7"]
 [ext_resource type="Texture2D" uid="uid://bir25hs58tmi4" path="res://Assets/Entities/dog.png" id="2_4yxo6"]
-[ext_resource type="Shader" path="res://Resources/Shaders/flash.gdshader" id="2_s2ars"]
+[ext_resource type="Material" uid="uid://diahf18ov4nsv" path="res://Resources/Materials/flash_and_burn.tres" id="2_ebf6i"]
 [ext_resource type="PackedScene" uid="uid://dix3ti8a5xl3s" path="res://Scenes/EnemyComponents/health_component.tscn" id="3_scoky"]
 [ext_resource type="PackedScene" uid="uid://c3cnagatm70qu" path="res://Scenes/EnemyComponents/velocity_component.tscn" id="4_2dqk4"]
 [ext_resource type="PackedScene" uid="uid://cp106tsdwum4x" path="res://Scenes/Misc/effects.tscn" id="4_2102a"]
 [ext_resource type="PackedScene" uid="uid://et20dn5wcy5r" path="res://Scenes/EnemyComponents/hurtbox.tscn" id="5_re02c"]
 [ext_resource type="PackedScene" uid="uid://bxjc0fqwygd20" path="res://Scenes/EnemyComponents/hitbox.tscn" id="6_dvg6i"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7um6"]
-resource_local_to_scene = true
-shader = ExtResource("2_s2ars")
-shader_parameter/flash_state = 0.0
-shader_parameter/progress = -0.4
-shader_parameter/width = 0.2
-shader_parameter/angle = 0.0
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001
@@ -92,7 +84,7 @@ motion_mode = 1
 script = ExtResource("1_8gha7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_u7um6")
+material = ExtResource("2_ebf6i")
 position = Vector2(0, -60)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_4yxo6")

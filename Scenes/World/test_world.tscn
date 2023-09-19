@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="1_0vgr8"]
 [ext_resource type="PackedScene" uid="uid://biykq7yoihixd" path="res://Scenes/Misc/enemy_spawner.tscn" id="1_cty63"]
+[ext_resource type="Script" path="res://Scenes/World/test_world.gd" id="1_vgha5"]
 [ext_resource type="PackedScene" uid="uid://c6v03feqk1tb3" path="res://Scenes/Player/player.tscn" id="2_3cp8h"]
 [ext_resource type="PackedScene" uid="uid://dw68x47bbd258" path="res://Scenes/Player/player_camera.tscn" id="3_jiv1g"]
 [ext_resource type="Script" path="res://Scenes/Misc/wave_info.gd" id="3_qgjlm"]
@@ -9,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://br3tdsrh84ugg" path="res://Scenes/Enemies/dog.tscn" id="5_c3ghc"]
 [ext_resource type="PackedScene" uid="uid://bqeftpt6velw6" path="res://Scenes/Enemies/mummy.tscn" id="6_4cn3h"]
 [ext_resource type="PackedScene" uid="uid://bubdrjydtjbiv" path="res://Scenes/Enemies/scorpio.tscn" id="7_ph8w4"]
-[ext_resource type="PackedScene" uid="uid://tmg6ly4wb3ha" path="res://Scenes/Djed/djed.tscn" id="10_vdg70"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_affgf"]
 normal = Vector2(1, 0)
@@ -64,6 +64,7 @@ spawn_delay = 2
 
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_vgha5")
 
 [node name="Sand" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -104,8 +105,5 @@ position_smoothing_speed = 2.0
 
 [node name="BottomRight" parent="Player/PlayerCamera/Positions" index="1"]
 position = Vector2(2496, 2496)
-
-[node name="Djed" parent="." instance=ExtResource("10_vdg70")]
-position = Vector2(1536, 1216)
 
 [editable path="Player/PlayerCamera"]

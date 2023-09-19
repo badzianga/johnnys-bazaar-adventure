@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://diahf18ov4nsv"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/flash.gdshader" id="1_2kg45"]
+
+[sub_resource type="Gradient" id="Gradient_kur5t"]
+offsets = PackedFloat32Array(0.0486111, 0.541667, 0.708333, 0.951389, 0.972222)
+colors = PackedColorArray(1, 1, 0.372549, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6gbfh"]
+gradient = SubResource("Gradient_kur5t")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l1sxy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xauqc"]
+noise = SubResource("FastNoiseLite_l1sxy")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_2kg45")
+shader_parameter/flash_state = 0.0
+shader_parameter/progress = -0.4
+shader_parameter/width = 0.6
+shader_parameter/angle = 0.0
+shader_parameter/noise = SubResource("NoiseTexture2D_xauqc")
+shader_parameter/colorCurve = SubResource("GradientTexture1D_6gbfh")

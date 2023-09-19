@@ -1,35 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://bubdrjydtjbiv"]
+[gd_scene load_steps=16 format=3 uid="uid://bubdrjydtjbiv"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_00eur"]
+[ext_resource type="Material" uid="uid://diahf18ov4nsv" path="res://Resources/Materials/flash_and_burn.tres" id="2_460yr"]
 [ext_resource type="Texture2D" uid="uid://cd1w8e3nygtfu" path="res://Assets/Entities/scorpio.png" id="2_d751p"]
-[ext_resource type="Shader" path="res://Resources/Shaders/flash.gdshader" id="2_jfb4v"]
 [ext_resource type="PackedScene" uid="uid://dix3ti8a5xl3s" path="res://Scenes/EnemyComponents/health_component.tscn" id="3_c4ad0"]
 [ext_resource type="PackedScene" uid="uid://c3cnagatm70qu" path="res://Scenes/EnemyComponents/velocity_component.tscn" id="4_jlth6"]
 [ext_resource type="PackedScene" uid="uid://cp106tsdwum4x" path="res://Scenes/Misc/effects.tscn" id="4_qaigw"]
 [ext_resource type="PackedScene" uid="uid://et20dn5wcy5r" path="res://Scenes/EnemyComponents/hurtbox.tscn" id="5_qcot7"]
 [ext_resource type="PackedScene" uid="uid://bxjc0fqwygd20" path="res://Scenes/EnemyComponents/hitbox.tscn" id="6_cro4v"]
-
-[sub_resource type="Gradient" id="Gradient_kur5t"]
-offsets = PackedFloat32Array(0.0486111, 0.541667, 0.708333, 0.951389, 0.972222)
-colors = PackedColorArray(1, 1, 0.372549, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6gbfh"]
-gradient = SubResource("Gradient_kur5t")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_l1sxy"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xauqc"]
-noise = SubResource("FastNoiseLite_l1sxy")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0y1mb"]
-resource_local_to_scene = true
-shader = ExtResource("2_jfb4v")
-shader_parameter/flash_state = 0.0
-shader_parameter/progress = -0.4
-shader_parameter/width = 0.6
-shader_parameter/angle = 0.0
-shader_parameter/noise = SubResource("NoiseTexture2D_xauqc")
-shader_parameter/colorCurve = SubResource("GradientTexture1D_6gbfh")
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001
@@ -143,7 +121,7 @@ gold_min = 1
 gold_max = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_0y1mb")
+material = ExtResource("2_460yr")
 position = Vector2(0, -24)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_d751p")

@@ -144,7 +144,7 @@ debug_color = Color(0.960784, 0.168627, 0.247059, 0.419608)
 wait_time = 1.5
 
 [node name="VolleyTimer" type="Timer" parent="ShootCooldown"]
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 
 [node name="LootCollectArea" type="Area2D" parent="."]

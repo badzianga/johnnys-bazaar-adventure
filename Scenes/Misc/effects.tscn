@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7t32mv5gsbt2"]
+[gd_scene load_steps=5 format=3 uid="uid://cp106tsdwum4x"]
 
-[sub_resource type="Animation" id="Animation_17d7p"]
+[sub_resource type="Animation" id="Animation_gpodp"]
 resource_name = "hurt"
 length = 0.2
 step = 0.05
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "values": [0.0, 1.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_xatyk"]
+[sub_resource type="Animation" id="Animation_8yd53"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,14 +31,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.4]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d1w8h"]
+[sub_resource type="Animation" id="Animation_vym7w"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.4, 2.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mdgk"]
 _data = {
-"RESET": SubResource("Animation_xatyk"),
-"hurt": SubResource("Animation_17d7p")
+"RESET": SubResource("Animation_8yd53"),
+"death": SubResource("Animation_vym7w"),
+"hurt": SubResource("Animation_gpodp")
 }
 
 [node name="Effects" type="AnimationPlayer"]
 libraries = {
-"": SubResource("AnimationLibrary_d1w8h")
+"": SubResource("AnimationLibrary_7mdgk")
 }

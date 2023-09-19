@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1kswy1qxeefn"]
+[gd_scene load_steps=6 format=3 uid="uid://c1kswy1qxeefn"]
 
 [ext_resource type="Texture2D" uid="uid://b3lmenxl0lce7" path="res://Assets/Loot/coin.png" id="1_7mc1t"]
 [ext_resource type="Script" path="res://Scenes/Loot/coin.gd" id="1_q8xcm"]
@@ -6,6 +6,17 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fh5o"]
 radius = 19.0919
 height = 45.2548
+
+[sub_resource type="Gradient" id="Gradient_htbbl"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rpygg"]
+gradient = SubResource("Gradient_htbbl")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Coin" type="Area2D"]
 collision_layer = 32
@@ -21,3 +32,7 @@ texture = ExtResource("1_7mc1t")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_3fh5o")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.0
+texture = SubResource("GradientTexture2D_rpygg")

@@ -6,13 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://dix3ti8a5xl3s" path="res://Scenes/EnemyComponents/health_component.tscn" id="2_oc54c"]
 [ext_resource type="PackedScene" uid="uid://et20dn5wcy5r" path="res://Scenes/EnemyComponents/hurtbox.tscn" id="2_ym083"]
 [ext_resource type="PackedScene" uid="uid://bxjc0fqwygd20" path="res://Scenes/EnemyComponents/hitbox.tscn" id="3_onc6u"]
-[ext_resource type="PackedScene" uid="uid://b7t32mv5gsbt2" path="res://Scenes/Misc/effects.tscn" id="4_2blk2"]
+[ext_resource type="PackedScene" uid="uid://cp106tsdwum4x" path="res://Scenes/Misc/effects.tscn" id="4_2blk2"]
 [ext_resource type="PackedScene" uid="uid://c3cnagatm70qu" path="res://Scenes/EnemyComponents/velocity_component.tscn" id="4_ln5kb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cguio"]
 resource_local_to_scene = true
 shader = ExtResource("2_c5p6i")
 shader_parameter/flash_state = 0.0
+shader_parameter/progress = -0.4
+shader_parameter/width = 0.2
+shader_parameter/angle = 1.0
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001

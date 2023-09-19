@@ -59,5 +59,12 @@ func _on_health_changed() -> void:
 
 func _on_health_depleted() -> void:
 	GameController.enemies.erase(self)
+	set_physics_process(false)
+	$CollisionShape.set_deferred("disabled", true)
+	$Hurtbox/CollisionShape.set_deferred("disabled", true)
+	$Hitbox/CollisionShape.set_deferred("disabled", true)
+	$Sprite/AnimationPlayer.pause()
+	_effects.play("death")
 	_spawn_coins()
+	await _effects.animation_finished
 	queue_free()

@@ -16,6 +16,7 @@ func _ready() -> void:
 
 func apply_damage(amount: int) -> void:
 	health -= amount
-	health_changed.emit()
 	if health <= 0:
 		health_depleted.emit()
+	else:
+		health_changed.emit()

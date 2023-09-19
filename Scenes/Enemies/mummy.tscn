@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pir44mu6ljs" path="res://Assets/Entities/mummy.png" id="2_dnb0p"]
 [ext_resource type="Shader" path="res://Resources/Shaders/flash.gdshader" id="2_fufu6"]
 [ext_resource type="PackedScene" uid="uid://dix3ti8a5xl3s" path="res://Scenes/EnemyComponents/health_component.tscn" id="3_fp12j"]
-[ext_resource type="PackedScene" uid="uid://b7t32mv5gsbt2" path="res://Scenes/Misc/effects.tscn" id="4_3ts0g"]
+[ext_resource type="PackedScene" uid="uid://cp106tsdwum4x" path="res://Scenes/Misc/effects.tscn" id="4_3ts0g"]
 [ext_resource type="PackedScene" uid="uid://c3cnagatm70qu" path="res://Scenes/EnemyComponents/velocity_component.tscn" id="4_awtdv"]
 [ext_resource type="PackedScene" uid="uid://et20dn5wcy5r" path="res://Scenes/EnemyComponents/hurtbox.tscn" id="5_75867"]
 [ext_resource type="PackedScene" uid="uid://bxjc0fqwygd20" path="res://Scenes/EnemyComponents/hitbox.tscn" id="6_8sh2x"]
@@ -13,6 +13,9 @@
 resource_local_to_scene = true
 shader = ExtResource("2_fufu6")
 shader_parameter/flash_state = 0.0
+shader_parameter/progress = -0.4
+shader_parameter/width = 0.2
+shader_parameter/angle = 1.0
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001

@@ -160,3 +160,6 @@ position = Vector2(0, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3tvf2")
 debug_color = Color(1, 0, 0.109804, 0.419608)
+
+[node name="IndicatorMarker" type="Marker2D" parent="."]
+position = Vector2(0, -67)

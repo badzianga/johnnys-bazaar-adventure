@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 const CoinScene := preload("res://Scenes/Loot/coin.tscn")
+const DamageIndicatorScene := preload("res://Scenes/Misc/damage_indicator.tscn")
 
 @export var max_health := 10
 @export var speed := 160.0
@@ -15,6 +16,7 @@ const CoinScene := preload("res://Scenes/Loot/coin.tscn")
 @onready var _health_component := $HealthComponent as HealthComponent
 @onready var _animation_player := $Sprite/AnimationPlayer
 @onready var _effects := $Sprite/Effects
+@onready var indicator_marker := $IndicatorMarker
 
 
 func _ready() -> void:
@@ -53,8 +55,13 @@ func _spawn_coins() -> void:
 		get_tree().get_first_node_in_group("Loot").call_deferred("add_child", coin)
 
 
-func _on_health_changed() -> void:
+func _on_health_changed(amount: int) -> void:
 	_effects.play("hurt")
+	var indicator := DamageIndicatorScene.instantiate()
+	indicator.global_position = indicator_marker.global_position
+	indicator.text = str(amount)
+	indicator.play_anim()
+	get_tree().get_root().add_child(indicator)
 
 
 func _on_health_depleted() -> void:

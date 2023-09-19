@@ -115,6 +115,7 @@ offset_top = 532.0
 offset_right = 268.0
 offset_bottom = 568.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 16
 text = "Buy"
 flat = true

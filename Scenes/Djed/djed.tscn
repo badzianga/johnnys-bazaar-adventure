@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://tmg6ly4wb3ha"]
+
+[ext_resource type="Texture2D" uid="uid://b56mx1cjpdjym" path="res://Assets/Entities/djed_sprite.png" id="1_0ggas"]
+[ext_resource type="Script" path="res://Scenes/Djed/djed.gd" id="1_8vgo1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ywss5"]
+radius = 16.0
+height = 66.0
+
+[sub_resource type="Animation" id="Animation_vvy1d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.125, 0.125)]
+}
+
+[sub_resource type="Animation" id="Animation_gcwo5"]
+resource_name = "shoot"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -72), Vector2(0, -57.875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.125, 0.125), Vector2(0.125, 0.107562)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwr6i"]
+_data = {
+"RESET": SubResource("Animation_vvy1d"),
+"shoot": SubResource("Animation_gcwo5")
+}
+
+[node name="Djed" type="StaticBody2D"]
+script = ExtResource("1_8vgo1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -72)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_0ggas")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(6, 11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ywss5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "shoot"
+libraries = {
+"": SubResource("AnimationLibrary_xwr6i")
+}
+
+[node name="Marker" type="Marker2D" parent="."]
+position = Vector2(0, -110)

@@ -37,6 +37,7 @@ theme_override_font_sizes/font_size = 32
 text = "Coins: 0"
 
 [node name="NextWaveButton" type="Button" parent="Background"]
+layout_mode = 0
 offset_left = 1344.0
 offset_top = 40.0
 offset_right = 1560.0

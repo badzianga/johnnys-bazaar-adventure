@@ -1,7 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6v03feqk1tb3"]
+[gd_scene load_steps=16 format=3 uid="uid://c6v03feqk1tb3"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_x8cn5"]
 [ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Entities/player.png" id="2_m04sv"]
+[ext_resource type="Shader" path="res://Resources/Shaders/only_flash.gdshader" id="3_u2r8x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0q4pi"]
+shader = ExtResource("3_u2r8x")
+shader_parameter/flash_state = 0.0
 
 [sub_resource type="Animation" id="Animation_3msth"]
 length = 0.001
@@ -95,6 +100,44 @@ _data = {
 "walk": SubResource("Animation_yx37o")
 }
 
+[sub_resource type="Animation" id="Animation_qokln"]
+resource_name = "hurt"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3at3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sv6wb"]
+_data = {
+"RESET": SubResource("Animation_3at3x"),
+"hurt": SubResource("Animation_qokln")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n33ct"]
 radius = 60.0
 height = 220.0
@@ -115,6 +158,7 @@ motion_mode = 1
 script = ExtResource("1_x8cn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0q4pi")
 position = Vector2(0, -146)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_m04sv")
@@ -123,6 +167,11 @@ texture = ExtResource("2_m04sv")
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_gue3i")
+}
+
+[node name="HurtEffect" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_sv6wb")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -161,8 +210,16 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LootGrabArea"]
 shape = SubResource("CircleShape2D_8vayn")
 
+[node name="IndicatorMarker" type="Marker2D" parent="."]
+position = Vector2(0, -432)
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="timeout" from="ShootCooldown/VolleyTimer" to="." method="_on_volley_timer_timeout"]
 [connection signal="area_entered" from="LootCollectArea" to="." method="_on_loot_collect_area_entered"]
 [connection signal="area_entered" from="LootGrabArea" to="." method="_on_loot_grab_area_entered"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

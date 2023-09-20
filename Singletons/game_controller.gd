@@ -7,7 +7,7 @@ const WorldScene := preload("res://Scenes/World/test_world.tscn")
 const ResultScreenScene := preload("res://Scenes/ResultScreen/result_screen.tscn")
 
 var current_wave := 1
-var coins := 999
+var coins := 0
 var player: CharacterBody2D
 var enemies: Array[Enemy]
 var purchased_upgrades: Array[StringName]

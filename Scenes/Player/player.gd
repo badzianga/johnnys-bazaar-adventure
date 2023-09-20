@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const LightOrbScene := preload("res://Scenes/Attacks/light_orb.tscn")
+const DamageIndicatorScene := preload("res://Scenes/Misc/damage_indicator.tscn")
 
 @export var speed = 320.0
 @export var health := 10
@@ -14,6 +15,10 @@ var _orbs_to_shoot := 0
 @onready var animation_player := $Sprite2D/AnimationPlayer
 @onready var sprite := $Sprite2D
 @onready var volley_timer := $ShootCooldown/VolleyTimer
+@onready var invincibility_timer := $InvincibilityTimer
+@onready var hurt_effect := $Sprite2D/HurtEffect
+@onready var indicator_marker := $IndicatorMarker
+@onready var hurtbox_collider := $Hurtbox/CollisionShape2D
 
 
 func _ready() -> void:
@@ -83,8 +88,25 @@ func _shoot() -> void:
 	get_tree().get_root().add_child(light_orb)
 
 
+func _spawn_indicator(value: int) -> void:
+	var indicator := DamageIndicatorScene.instantiate()
+	indicator.global_position = indicator_marker.global_position
+	indicator.text = str(value)
+	indicator.scale *= 1.2
+	indicator.play_anim()
+	get_tree().get_root().add_child(indicator)
+
+
+func _make_invincible() -> void:
+	hurtbox_collider.set_deferred("disabled", true)
+	invincibility_timer.start()
+
+
 func _on_hurtbox_area_entered(hitbox: Area2D) -> void:
 	health -= hitbox.damage
+	hurt_effect.play("hurt")
+	_spawn_indicator(hitbox.damage)
+	_make_invincible()
 	Hud.set_health(health)
 	if health <= 0:
 		GameController.go_to_result_screen()
@@ -109,3 +131,7 @@ func _on_loot_collect_area_entered(coin: Coin) -> void:
 
 func _on_loot_grab_area_entered(coin: Coin) -> void:
 	coin.grab()
+
+
+func _on_invincibility_timer_timeout() -> void:
+	hurtbox_collider.set_deferred("disabled", false)

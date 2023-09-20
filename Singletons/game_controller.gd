@@ -131,7 +131,7 @@ func reset_game() -> void:
 	coins_left = 0
 	player = null
 	PlayerUpgrades.reset()
-	Upgrades.available_upgrades = Upgrades.upgrades
+	Upgrades.push_upgrades()
 	purchased_upgrades.clear()
 	purchased_upgrades.append("")
 	back_to_world()

@@ -156,4 +156,13 @@ var upgrades := [
 	},
 ]
 
-@onready var available_upgrades := upgrades
+var available_upgrades: Array[Dictionary]
+
+
+func _ready() -> void:
+	push_upgrades()
+
+
+func push_upgrades() -> void:
+	for upgrade in upgrades:
+		available_upgrades.append(upgrade)

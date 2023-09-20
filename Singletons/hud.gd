@@ -24,4 +24,4 @@ func set_wave(wave: int) -> void:
 
 
 func set_coins(coins: int) -> void:
-	coins_label.text = "Coins: " + str(coins)
+	coins_label.text = str(coins)

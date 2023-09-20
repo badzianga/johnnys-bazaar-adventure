@@ -118,7 +118,6 @@ func upgrade_character(item_id: int) -> void:
 			PlayerUpgrades.penetration += 1
 
 
-
 func remove_available_upgrade(item_id: int) -> void:
 	var index := 0
 	for item_data in Upgrades.available_upgrades:

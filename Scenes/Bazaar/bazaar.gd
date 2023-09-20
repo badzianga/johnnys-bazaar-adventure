@@ -19,6 +19,12 @@ func _create_option(delayed: bool = false) -> void:
 	if len(Upgrades.available_upgrades) <= 0:
 		return
 	var option := ItemOptionScene.instantiate()
+	var avail_count := 0
+	for item in Upgrades.available_upgrades:
+		if item["Requirement"] in GameController.purchased_upgrades:
+			avail_count += 1
+	if avail_count == 0:
+		return
 	var allowed_upgrade := false
 	var item_info: Dictionary
 	while not allowed_upgrade:

@@ -7,6 +7,7 @@ const ItemOptionScene := preload("res://Scenes/UI/item_option.tscn")
 @onready var coins_label := $Background/CoinsLabel
 @onready var stats_label := $Background/StatsBackground/StatsLabel
 
+
 func _ready() -> void:
 	coins_label.text = str(GameController.coins)
 	for i in range(3):
@@ -18,7 +19,13 @@ func _create_option(delayed: bool = false) -> void:
 	if len(Upgrades.available_upgrades) <= 0:
 		return
 	var option := ItemOptionScene.instantiate()
-	option.set_info(Upgrades.available_upgrades.pick_random())
+	var allowed_upgrade := false
+	var item_info: Dictionary
+	while not allowed_upgrade:
+		item_info = Upgrades.available_upgrades.pick_random()
+		if item_info["Requirement"] in GameController.purchased_upgrades:
+			allowed_upgrade = true
+	option.set_info(item_info)
 	option.item_purchased.connect(_on_item_purchased)
 	option.display(delayed)
 	# I don't want to create few entries of the same upgrade, so this is necessary

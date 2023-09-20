@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ug4c1x711rn5"]
+[gd_scene load_steps=24 format=3 uid="uid://ug4c1x711rn5"]
 
 [ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="1_0vgr8"]
 [ext_resource type="PackedScene" uid="uid://biykq7yoihixd" path="res://Scenes/Misc/enemy_spawner.tscn" id="1_cty63"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Scenes/Misc/wave_info.gd" id="3_qgjlm"]
 [ext_resource type="PackedScene" uid="uid://dwc0fyvxk8ev" path="res://Scenes/Enemies/snake.tscn" id="4_n4gcb"]
 [ext_resource type="PackedScene" uid="uid://br3tdsrh84ugg" path="res://Scenes/Enemies/dog.tscn" id="5_c3ghc"]
-[ext_resource type="PackedScene" uid="uid://bqeftpt6velw6" path="res://Scenes/Enemies/mummy.tscn" id="6_4cn3h"]
 [ext_resource type="PackedScene" uid="uid://bubdrjydtjbiv" path="res://Scenes/Enemies/scorpio.tscn" id="7_ph8w4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_affgf"]
@@ -30,37 +29,77 @@ spawn_chance = 1.0
 amount = 2
 spawn_delay = 2
 
+[sub_resource type="Resource" id="Resource_sjwi6"]
+script = ExtResource("3_qgjlm")
+wave_number = 2
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 2
+
 [sub_resource type="Resource" id="Resource_m14qh"]
 script = ExtResource("3_qgjlm")
 wave_number = 2
 enemy = ExtResource("4_n4gcb")
-spawn_chance = 1.0
-amount = 2
-spawn_delay = 1
+spawn_chance = 0.8
+amount = 1
+spawn_delay = 3
 
-[sub_resource type="Resource" id="Resource_420y0"]
+[sub_resource type="Resource" id="Resource_m70ro"]
 script = ExtResource("3_qgjlm")
 wave_number = 3
-enemy = ExtResource("5_c3ghc")
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 0.6
+amount = 2
+spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_o0hlb"]
+script = ExtResource("3_qgjlm")
+wave_number = 3
+enemy = ExtResource("4_n4gcb")
 spawn_chance = 1.0
 amount = 2
-spawn_delay = 1
+spawn_delay = 2
 
-[sub_resource type="Resource" id="Resource_o6v00"]
+[sub_resource type="Resource" id="Resource_1i7nj"]
 script = ExtResource("3_qgjlm")
 wave_number = 4
-enemy = ExtResource("5_c3ghc")
-spawn_chance = 1.0
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 0.2
 amount = 3
 spawn_delay = 1
 
-[sub_resource type="Resource" id="Resource_1rxif"]
+[sub_resource type="Resource" id="Resource_i7uqt"]
 script = ExtResource("3_qgjlm")
 wave_number = 4
-enemy = ExtResource("6_4cn3h")
-spawn_chance = 0.4
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 0.8
+amount = 2
+spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_875ey"]
+script = ExtResource("3_qgjlm")
+wave_number = 4
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 0.2
 amount = 1
-spawn_delay = 2
+spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_kdwh5"]
+script = ExtResource("3_qgjlm")
+wave_number = 5
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 1.0
+amount = 4
+spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_np5el"]
+script = ExtResource("3_qgjlm")
+wave_number = 5
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
+amount = 3
+spawn_delay = 1
 
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
@@ -95,7 +134,7 @@ position = Vector2(2496, 2496)
 shape = SubResource("WorldBoundaryShape2D_wbn7u")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_cty63")]
-waves = Array[ExtResource("3_qgjlm")]([SubResource("Resource_ebqoo"), SubResource("Resource_m14qh"), SubResource("Resource_420y0"), SubResource("Resource_o6v00"), SubResource("Resource_1rxif")])
+waves = Array[ExtResource("3_qgjlm")]([SubResource("Resource_ebqoo"), SubResource("Resource_sjwi6"), SubResource("Resource_m14qh"), SubResource("Resource_m70ro"), SubResource("Resource_o0hlb"), SubResource("Resource_1i7nj"), SubResource("Resource_i7uqt"), SubResource("Resource_875ey"), SubResource("Resource_kdwh5"), SubResource("Resource_np5el")])
 
 [node name="Player" parent="." instance=ExtResource("2_3cp8h")]
 position = Vector2(1250, 1250)

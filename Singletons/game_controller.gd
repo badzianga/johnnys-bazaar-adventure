@@ -1,7 +1,11 @@
 extends Node
 
 
-const WAVE_TIMES: Array[int] = [0, 15, 20, 35, 40, 50]
+const WAVE_TIMES: Array[int] = [0, 15, 20, 30, 30, 45]
+const music_streams := {
+	&"menu": preload("res://Assets/Music/egypt.wav"),
+	&"game": preload("res://Assets/Music/camel.mp3"),
+}
 const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")
 const ResultScreenScene := preload("res://Scenes/ResultScreen/result_screen.tscn")
@@ -18,9 +22,12 @@ var coins_left := 0
 
 
 func _ready() -> void:
-	Hud.set_wave(current_wave)
 	randomize()
-	_reset_timer()
+
+
+func play_music(title: StringName) -> void:
+	music_player.stream = music_streams[title]
+	music_player.play()
 
 
 func _process(_delta: float) -> void:
@@ -120,6 +127,7 @@ func go_to_result_screen() -> void:
 func reset_game() -> void:
 	current_wave = 1
 	coins = 0
+	coins_left = 0
 	player = null
 	purchased_upgrades.clear()
 	purchased_upgrades.append("")
@@ -136,6 +144,7 @@ func _on_timer_timeout() -> void:
 	current_wave += 1
 	if current_wave >= len(WAVE_TIMES):
 		go_to_result_screen()
+		return
 	# go to bazaar
 	coins = player.coins
 	Hud.visible = false

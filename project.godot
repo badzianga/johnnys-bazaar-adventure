@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="gRa"
-run/main_scene="res://Scenes/World/test_world.tscn"
+config/name="Johnny's Bazaar Adventure"
+run/main_scene="res://Scenes/Menu/menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 

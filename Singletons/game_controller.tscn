@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://baultc3pgkuar"]
+[gd_scene load_steps=2 format=3 uid="uid://baultc3pgkuar"]
 
 [ext_resource type="Script" path="res://Singletons/game_controller.gd" id="1_kwwop"]
-[ext_resource type="AudioStream" uid="uid://bb3g8xw1smm1v" path="res://Assets/Music/camel.mp3" id="2_n1v74"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_kwwop")
@@ -10,9 +9,7 @@ script = ExtResource("1_kwwop")
 one_shot = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_n1v74")
 volume_db = -20.0
-autoplay = true
 bus = &"Music"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,6 +7,10 @@ extends CanvasLayer
 @onready var coins_label := $Control/CoinsLabel
 
 
+func _ready() -> void:
+	visible = false
+
+
 func set_health(health: int) -> void:
 	health_bar.value = health
 

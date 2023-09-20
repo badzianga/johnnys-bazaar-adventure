@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://gxcw0570w6e5"]
+
+[ext_resource type="Texture2D" uid="uid://c6v34568w8n56" path="res://Assets/HUD/menu.png" id="1_cuj3t"]
+[ext_resource type="Script" path="res://Scenes/Menu/menu.gd" id="1_ld45a"]
+[ext_resource type="Texture2D" uid="uid://vclams5rgvv3" path="res://Assets/HUD/nextwave.png" id="2_ucuuw"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ld45a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cuj3t")
+expand_mode = 1
+
+[node name="PlayButtonBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 512.0
+offset_right = 509.0
+offset_bottom = 632.0
+texture = ExtResource("2_ucuuw")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 512.0
+offset_right = 496.0
+offset_bottom = 624.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_font_sizes/font_size = 56
+text = "PLAY"
+flat = true
+
+[node name="ExitButtonBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 672.0
+offset_right = 509.0
+offset_bottom = 792.0
+texture = ExtResource("2_ucuuw")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 672.0
+offset_right = 496.0
+offset_bottom = 784.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_font_sizes/font_size = 56
+text = "EXIT"
+flat = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

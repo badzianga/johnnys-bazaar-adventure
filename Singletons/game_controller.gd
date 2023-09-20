@@ -3,8 +3,6 @@ extends Node
 
 const WAVE_TIMES: Array[int] = [0, 15, 20, 30, 30, 45]
 const music_streams := {
-	&"menu": preload("res://Assets/Music/egypt.wav"),
-	&"game": preload("res://Assets/Music/camel.mp3"),
 	&"bazaar": preload("res://Assets/Music/istanbul-dreams.mp3"),
 	&"wave": preload("res://Assets/Music/belly-dance.mp3"),
 	&"wave10": preload("res://Assets/Music/arabian-trap-powerful.mp3"),
@@ -12,6 +10,7 @@ const music_streams := {
 const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")
 const ResultScreenScene := preload("res://Scenes/ResultScreen/result_screen.tscn")
+const IntroScene := preload("res://Scenes/Intro/intro.tscn")
 
 var current_wave := 1
 var coins := 0
@@ -26,6 +25,10 @@ var coins_left := 0
 
 func _ready() -> void:
 	randomize()
+
+
+func show_intro() -> void:
+	get_tree().change_scene_to_packed(IntroScene)
 
 
 func play_music(title: StringName) -> void:
@@ -152,7 +155,7 @@ func _retrieve_coins_left() -> void:
 
 func _on_timer_timeout() -> void:
 	_retrieve_coins_left()
-	
+
 	current_wave += 1
 	if current_wave >= len(WAVE_TIMES):
 		go_to_result_screen()

@@ -1,16 +1,18 @@
-extends CanvasLayer
+extends TextureRect
 
+
+signal name_changed(actor_name: String)
  
-@export_file("*.json") var _dialog_path: String 
+@export_file("*.json") var dialog_path: String 
 @export var _text_speed := 0.025
 
 var _dialog: Array
 var _phrase_number := 0
 var _finished := false
 
-@onready var _name_label := $Box/NameLabel
-@onready var _text_label := $Box/TextLabel
-@onready var _indicator := $Box/Indicator
+@onready var _name_label := $NameLabel
+@onready var _text_label := $TextLabel
+@onready var _indicator := $Indicator
 @onready var _timer := $Timer
 
 
@@ -31,7 +33,7 @@ func _process(_delta: float) -> void:
 
 
 func _get_dialog() -> Array:
-	var file := FileAccess.open(_dialog_path, FileAccess.READ)
+	var file := FileAccess.open(dialog_path, FileAccess.READ)
 	var content := file.get_as_text()
 
 	var json: Array = JSON.parse_string(content)
@@ -51,6 +53,7 @@ func _next_phrase() -> void:
 	
 	_name_label.bbcode_text = _dialog[_phrase_number]["Name"]
 	_text_label.bbcode_text = _dialog[_phrase_number]["Text"]
+	name_changed.emit(_dialog[_phrase_number]["Name"])
 
 	_text_label.visible_characters = 0
 	while _text_label.visible_characters < len(_text_label.text):

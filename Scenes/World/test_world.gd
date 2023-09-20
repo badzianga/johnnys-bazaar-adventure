@@ -6,6 +6,11 @@ const CoinScene := preload("res://Scenes/Loot/coin.tscn")
 
 
 func _ready() -> void:
+	if GameController.current_wave < 10:
+		GameController.play_music("wave")
+	else:
+		GameController.play_music("wave10")
+	
 	for _i in range(PlayerUpgrades.djeds):
 		_spawn_djed()
 	

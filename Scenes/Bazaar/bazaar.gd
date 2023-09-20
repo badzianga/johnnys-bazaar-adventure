@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 const ItemOptionScene := preload("res://Scenes/UI/item_option.tscn")
+const DialogueBoxScene := preload("res://Scenes/DialogueSystem/dialogue_system.tscn")
 
 @onready var container := $Background/Container
 @onready var coins_label := $Background/CoinsLabel
@@ -9,10 +10,16 @@ const ItemOptionScene := preload("res://Scenes/UI/item_option.tscn")
 
 
 func _ready() -> void:
+	GameController.play_music("bazaar")
 	coins_label.text = str(GameController.coins)
 	for i in range(3):
 		_create_option()
 	_show_upgrades()
+	var path := "res://Assets/Dialogs/" + "wave_" + str(GameController.current_wave - 1) + ".json"
+	if FileAccess.file_exists(path):
+		var dialogue_box := DialogueBoxScene.instantiate()
+		dialogue_box.dialog_path = path
+		add_child(dialogue_box)
 
 
 func _create_option(delayed: bool = false) -> void:

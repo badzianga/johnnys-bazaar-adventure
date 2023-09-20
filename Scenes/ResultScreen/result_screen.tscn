@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2ltg0ykto581"]
+[gd_scene load_steps=8 format=3 uid="uid://c2ltg0ykto581"]
 
 [ext_resource type="Script" path="res://Scenes/ResultScreen/result_screen.gd" id="1_fo3mn"]
+[ext_resource type="Texture2D" uid="uid://bnrxnfp2ewyof" path="res://Assets/Entities/ra.png" id="2_borhg"]
+[ext_resource type="Texture2D" uid="uid://pir44mu6ljs" path="res://Assets/Entities/mummy.png" id="3_e4wa2"]
+[ext_resource type="Texture2D" uid="uid://bir25hs58tmi4" path="res://Assets/Entities/dog.png" id="4_im7xh"]
+[ext_resource type="Texture2D" uid="uid://cd1w8e3nygtfu" path="res://Assets/Entities/scorpio.png" id="5_46cm1"]
+[ext_resource type="Texture2D" uid="uid://c1gnaq2a5ofm0" path="res://Assets/Entities/snake.png" id="6_so8qp"]
+[ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Entities/player.png" id="7_4wdxw"]
 
 [node name="ResultScreen" type="ColorRect"]
 anchors_preset = 15
@@ -44,5 +50,43 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "PLAY AGAIN"
+
+[node name="Ra" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1332, 644)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_borhg")
+
+[node name="Mummy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(220, 620)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_e4wa2")
+
+[node name="Scorpio" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(344, 752)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_46cm1")
+
+[node name="Snake" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1172, 744)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_so8qp")
+flip_h = true
+
+[node name="Dog" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1320, 676)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_im7xh")
+flip_h = true
+
+[node name="Player" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(276, 652)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_4wdxw")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

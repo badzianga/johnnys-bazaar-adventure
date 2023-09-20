@@ -26,7 +26,7 @@ offset_right = 1600.0
 offset_bottom = 128.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 56
-text = "Jojo's Bazaar Adventure"
+text = "Bazaar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -76,17 +76,17 @@ flat = true
 custom_minimum_size = Vector2(1088, 600)
 layout_mode = 0
 offset_left = 64.0
-offset_top = 128.0
+offset_top = 113.0
 offset_right = 1152.0
-offset_bottom = 728.0
+offset_bottom = 713.0
 theme_override_constants/separation = 64
 
 [node name="StatsBackground" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_left = 1152.0
-offset_top = 136.0
-offset_right = 1600.0
-offset_bottom = 608.0
+offset_left = 1151.0
+offset_top = 117.0
+offset_right = 1599.0
+offset_bottom = 589.0
 texture = ExtResource("5_eqpra")
 expand_mode = 1
 
@@ -125,9 +125,9 @@ text = "DJED UPGRADES"
 horizontal_alignment = 1
 
 [node name="Ra" type="Sprite2D" parent="."]
-position = Vector2(1448, 824)
+position = Vector2(1435, 835)
 rotation = -0.322886
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_ix5ro")
 
 [connection signal="pressed" from="Background/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ug4c1x711rn5"]
+[gd_scene load_steps=42 format=3 uid="uid://ug4c1x711rn5"]
 
 [ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="1_0vgr8"]
 [ext_resource type="PackedScene" uid="uid://biykq7yoihixd" path="res://Scenes/Misc/enemy_spawner.tscn" id="1_cty63"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwc0fyvxk8ev" path="res://Scenes/Enemies/snake.tscn" id="4_n4gcb"]
 [ext_resource type="PackedScene" uid="uid://br3tdsrh84ugg" path="res://Scenes/Enemies/dog.tscn" id="5_c3ghc"]
 [ext_resource type="PackedScene" uid="uid://bubdrjydtjbiv" path="res://Scenes/Enemies/scorpio.tscn" id="7_ph8w4"]
+[ext_resource type="PackedScene" uid="uid://bqeftpt6velw6" path="res://Scenes/Enemies/mummy.tscn" id="8_aqlv0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_affgf"]
 normal = Vector2(1, 0)
@@ -21,7 +22,7 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wbn7u"]
 
-[sub_resource type="Resource" id="Resource_ebqoo"]
+[sub_resource type="Resource" id="Resource_jjths"]
 script = ExtResource("3_qgjlm")
 wave_number = 1
 enemy = ExtResource("7_ph8w4")
@@ -29,77 +30,213 @@ spawn_chance = 1.0
 amount = 2
 spawn_delay = 2
 
-[sub_resource type="Resource" id="Resource_sjwi6"]
+[sub_resource type="Resource" id="Resource_d7tox"]
 script = ExtResource("3_qgjlm")
-wave_number = 2
-enemy = ExtResource("7_ph8w4")
-spawn_chance = 1.0
-amount = 2
-spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_m14qh"]
-script = ExtResource("3_qgjlm")
-wave_number = 2
+wave_number = 1
 enemy = ExtResource("4_n4gcb")
 spawn_chance = 0.5
 amount = 1
-spawn_delay = 4
+spawn_delay = 9
 
-[sub_resource type="Resource" id="Resource_m70ro"]
+[sub_resource type="Resource" id="Resource_0tgp3"]
 script = ExtResource("3_qgjlm")
-wave_number = 3
+wave_number = 2
 enemy = ExtResource("7_ph8w4")
-spawn_chance = 0.6
-amount = 3
-spawn_delay = 1
-
-[sub_resource type="Resource" id="Resource_o0hlb"]
-script = ExtResource("3_qgjlm")
-wave_number = 3
-enemy = ExtResource("4_n4gcb")
-spawn_chance = 0.6
-amount = 1
-spawn_delay = 3
-
-[sub_resource type="Resource" id="Resource_1i7nj"]
-script = ExtResource("3_qgjlm")
-wave_number = 4
-enemy = ExtResource("7_ph8w4")
-spawn_chance = 0.2
+spawn_chance = 1.0
 amount = 2
 spawn_delay = 2
 
-[sub_resource type="Resource" id="Resource_i7uqt"]
+[sub_resource type="Resource" id="Resource_bgemj"]
 script = ExtResource("3_qgjlm")
-wave_number = 4
-enemy = ExtResource("4_n4gcb")
-spawn_chance = 0.6
-amount = 2
-spawn_delay = 1
+wave_number = 2
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 0.5
+amount = 1
+spawn_delay = 8
 
-[sub_resource type="Resource" id="Resource_875ey"]
+[sub_resource type="Resource" id="Resource_yw4yr"]
 script = ExtResource("3_qgjlm")
-wave_number = 4
-enemy = ExtResource("5_c3ghc")
-spawn_chance = 0.1
+wave_number = 2
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
+amount = 1
+spawn_delay = 9
+
+[sub_resource type="Resource" id="Resource_5yu3q"]
+script = ExtResource("3_qgjlm")
+wave_number = 3
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_cu15b"]
+script = ExtResource("3_qgjlm")
+wave_number = 3
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
 amount = 1
 spawn_delay = 5
 
-[sub_resource type="Resource" id="Resource_kdwh5"]
+[sub_resource type="Resource" id="Resource_wc1ap"]
+script = ExtResource("3_qgjlm")
+wave_number = 3
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 0.5
+amount = 1
+spawn_delay = 9
+
+[sub_resource type="Resource" id="Resource_b8nhk"]
+script = ExtResource("3_qgjlm")
+wave_number = 4
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_bvxc2"]
+script = ExtResource("3_qgjlm")
+wave_number = 4
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
+amount = 1
+spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_lmgb5"]
+script = ExtResource("3_qgjlm")
+wave_number = 4
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 0.5
+amount = 1
+spawn_delay = 9
+
+[sub_resource type="Resource" id="Resource_ghgjl"]
 script = ExtResource("3_qgjlm")
 wave_number = 5
 enemy = ExtResource("7_ph8w4")
-spawn_chance = 1.0
-amount = 4
-spawn_delay = 1
+spawn_chance = 0.3
+amount = 2
+spawn_delay = 14
 
-[sub_resource type="Resource" id="Resource_np5el"]
+[sub_resource type="Resource" id="Resource_2litv"]
 script = ExtResource("3_qgjlm")
 wave_number = 5
 enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_h36in"]
+script = ExtResource("3_qgjlm")
+wave_number = 5
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 1
+spawn_delay = 9
+
+[sub_resource type="Resource" id="Resource_uel2x"]
+script = ExtResource("3_qgjlm")
+wave_number = 6
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 0.3
+amount = 2
+spawn_delay = 14
+
+[sub_resource type="Resource" id="Resource_7prrg"]
+script = ExtResource("3_qgjlm")
+wave_number = 6
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_gjoyp"]
+script = ExtResource("3_qgjlm")
+wave_number = 6
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_afmve"]
+script = ExtResource("3_qgjlm")
+wave_number = 7
+enemy = ExtResource("7_ph8w4")
+spawn_chance = 0.5
+amount = 1
+spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_b6nbt"]
+script = ExtResource("3_qgjlm")
+wave_number = 7
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 0.5
+amount = 1
+spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_60473"]
+script = ExtResource("3_qgjlm")
+wave_number = 7
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_ureqx"]
+script = ExtResource("3_qgjlm")
+wave_number = 7
+enemy = ExtResource("8_aqlv0")
+spawn_chance = 0.4
+amount = 1
+spawn_delay = 9
+
+[sub_resource type="Resource" id="Resource_kotet"]
+script = ExtResource("3_qgjlm")
+wave_number = 8
+enemy = ExtResource("4_n4gcb")
+spawn_chance = 0.5
+amount = 1
+spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_bnc3f"]
+script = ExtResource("3_qgjlm")
+wave_number = 8
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_qp61d"]
+script = ExtResource("3_qgjlm")
+wave_number = 8
+enemy = ExtResource("8_aqlv0")
 spawn_chance = 0.8
-amount = 3
-spawn_delay = 1
+amount = 1
+spawn_delay = 9
+
+[sub_resource type="Resource" id="Resource_alkty"]
+script = ExtResource("3_qgjlm")
+wave_number = 9
+enemy = ExtResource("5_c3ghc")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_fskvc"]
+script = ExtResource("3_qgjlm")
+wave_number = 9
+enemy = ExtResource("8_aqlv0")
+spawn_chance = 1.0
+amount = 1
+spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_lv70r"]
+script = ExtResource("3_qgjlm")
+wave_number = 10
+enemy = ExtResource("8_aqlv0")
+spawn_chance = 1.0
+amount = 2
+spawn_delay = 3
 
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
@@ -134,7 +271,7 @@ position = Vector2(2496, 2496)
 shape = SubResource("WorldBoundaryShape2D_wbn7u")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_cty63")]
-waves = Array[ExtResource("3_qgjlm")]([SubResource("Resource_ebqoo"), SubResource("Resource_sjwi6"), SubResource("Resource_m14qh"), SubResource("Resource_m70ro"), SubResource("Resource_o0hlb"), SubResource("Resource_1i7nj"), SubResource("Resource_i7uqt"), SubResource("Resource_875ey"), SubResource("Resource_kdwh5"), SubResource("Resource_np5el")])
+waves = Array[ExtResource("3_qgjlm")]([SubResource("Resource_jjths"), SubResource("Resource_d7tox"), SubResource("Resource_0tgp3"), SubResource("Resource_bgemj"), SubResource("Resource_yw4yr"), SubResource("Resource_5yu3q"), SubResource("Resource_cu15b"), SubResource("Resource_wc1ap"), SubResource("Resource_b8nhk"), SubResource("Resource_bvxc2"), SubResource("Resource_lmgb5"), SubResource("Resource_ghgjl"), SubResource("Resource_2litv"), SubResource("Resource_h36in"), SubResource("Resource_uel2x"), SubResource("Resource_7prrg"), SubResource("Resource_gjoyp"), SubResource("Resource_afmve"), SubResource("Resource_b6nbt"), SubResource("Resource_60473"), SubResource("Resource_ureqx"), SubResource("Resource_kotet"), SubResource("Resource_bnc3f"), SubResource("Resource_qp61d"), SubResource("Resource_alkty"), SubResource("Resource_fskvc"), SubResource("Resource_lv70r")])
 
 [node name="Player" parent="." instance=ExtResource("2_3cp8h")]
 position = Vector2(1250, 1250)

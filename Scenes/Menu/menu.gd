@@ -2,11 +2,10 @@ extends Control
 
 
 func _ready() -> void:
-	GameController.play_music("menu")
+	GameController.play_music("bazaar")
 
 
 func _on_play_button_pressed() -> void:
-	GameController.play_music("game")
 	GameController.back_to_world()
 
 

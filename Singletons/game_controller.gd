@@ -5,6 +5,9 @@ const WAVE_TIMES: Array[int] = [0, 15, 20, 30, 30, 45]
 const music_streams := {
 	&"menu": preload("res://Assets/Music/egypt.wav"),
 	&"game": preload("res://Assets/Music/camel.mp3"),
+	&"bazaar": preload("res://Assets/Music/istanbul-dreams.mp3"),
+	&"wave": preload("res://Assets/Music/belly-dance.mp3"),
+	&"wave10": preload("res://Assets/Music/arabian-trap-powerful.mp3"),
 }
 const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")

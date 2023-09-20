@@ -110,6 +110,13 @@ func upgrade_character(item_id: int) -> void:
 			PlayerUpgrades.djed_bullet_speed_multiplier += 0.15
 			PlayerUpgrades.cooldown_multiplier -= 0.08
 			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
+		19:
+			PlayerUpgrades.djed_damage_multiplier += 0.15
+			PlayerUpgrades.djed_penetration += 1
+		20:
+			PlayerUpgrades.damage_multiplier += 0.15
+			PlayerUpgrades.penetration += 1
+
 
 
 func remove_available_upgrade(item_id: int) -> void:

@@ -154,6 +154,22 @@ var upgrades := [
 		"Requirement": "Hathor Symbol I",
 		"Id": 18,
 	},
+	{
+		"Name": "Horus Necklace - Djed",
+		"Description": "Increases Djed damage by 15% and penetrates 1 more enemy.",
+		"Price": 15,
+		"Icon": "horus_necklace.png",
+		"Requirement": "Djed Upgrade I",
+		"Id": 19,
+	},
+	{
+		"Name": "Horus Necklace - Scroll",
+		"Description": "Increases Scroll damage by 15% and penetrates 1 more enemy.",
+		"Price": 15,
+		"Icon": "horus_necklace.png",
+		"Requirement": "Scroll of Ra - damage II",
+		"Id": 20,
+	},
 ]
 
 var available_upgrades: Array[Dictionary]

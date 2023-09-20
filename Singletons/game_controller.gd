@@ -125,10 +125,13 @@ func go_to_result_screen() -> void:
 
 
 func reset_game() -> void:
+	timer.stop()
 	current_wave = 1
 	coins = 0
 	coins_left = 0
 	player = null
+	PlayerUpgrades.reset()
+	Upgrades.available_upgrades = Upgrades.upgrades
 	purchased_upgrades.clear()
 	purchased_upgrades.append("")
 	back_to_world()
@@ -146,6 +149,7 @@ func _on_timer_timeout() -> void:
 		go_to_result_screen()
 		return
 	# go to bazaar
+	timer.stop()
 	coins = player.coins
 	Hud.visible = false
 	get_tree().change_scene_to_packed(BazaarScene)

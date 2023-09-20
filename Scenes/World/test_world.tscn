@@ -41,49 +41,49 @@ spawn_delay = 2
 script = ExtResource("3_qgjlm")
 wave_number = 2
 enemy = ExtResource("4_n4gcb")
-spawn_chance = 0.8
+spawn_chance = 0.5
 amount = 1
-spawn_delay = 3
+spawn_delay = 4
 
 [sub_resource type="Resource" id="Resource_m70ro"]
 script = ExtResource("3_qgjlm")
 wave_number = 3
 enemy = ExtResource("7_ph8w4")
 spawn_chance = 0.6
-amount = 2
-spawn_delay = 0
+amount = 3
+spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_o0hlb"]
 script = ExtResource("3_qgjlm")
 wave_number = 3
 enemy = ExtResource("4_n4gcb")
-spawn_chance = 1.0
-amount = 2
-spawn_delay = 2
+spawn_chance = 0.6
+amount = 1
+spawn_delay = 3
 
 [sub_resource type="Resource" id="Resource_1i7nj"]
 script = ExtResource("3_qgjlm")
 wave_number = 4
 enemy = ExtResource("7_ph8w4")
 spawn_chance = 0.2
-amount = 3
-spawn_delay = 1
+amount = 2
+spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_i7uqt"]
 script = ExtResource("3_qgjlm")
 wave_number = 4
 enemy = ExtResource("4_n4gcb")
-spawn_chance = 0.8
+spawn_chance = 0.6
 amount = 2
-spawn_delay = 0
+spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_875ey"]
 script = ExtResource("3_qgjlm")
 wave_number = 4
 enemy = ExtResource("5_c3ghc")
-spawn_chance = 0.2
+spawn_chance = 0.1
 amount = 1
-spawn_delay = 3
+spawn_delay = 5
 
 [sub_resource type="Resource" id="Resource_kdwh5"]
 script = ExtResource("3_qgjlm")
@@ -91,13 +91,13 @@ wave_number = 5
 enemy = ExtResource("7_ph8w4")
 spawn_chance = 1.0
 amount = 4
-spawn_delay = 0
+spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_np5el"]
 script = ExtResource("3_qgjlm")
 wave_number = 5
 enemy = ExtResource("4_n4gcb")
-spawn_chance = 1.0
+spawn_chance = 0.8
 amount = 3
 spawn_delay = 1
 

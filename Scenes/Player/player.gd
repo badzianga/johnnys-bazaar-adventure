@@ -29,6 +29,7 @@ func _ready() -> void:
 	Hud.set_health(health)
 	Hud.set_coins(coins)
 	$ShootCooldown.start()
+	hurt_effect.play("RESET")
 
 
 func _physics_process(_delta: float) -> void:
@@ -85,7 +86,7 @@ func _shoot() -> void:
 		light_orb.direction = global_position.direction_to(random_enemy.global_position)
 	else:
 		light_orb.direction = Vector2.from_angle(randf_range(0.0, TAU))
-	get_tree().get_root().add_child(light_orb)
+	get_parent().add_child(light_orb)
 
 
 func _spawn_indicator(value: int) -> void:

@@ -26,4 +26,4 @@ func shoot() -> void:
 			light_orb.direction = global_position.direction_to(random_enemy.global_position)
 		else:
 			light_orb.direction = Vector2.from_angle(randf_range(0.0, TAU))
-		get_tree().get_root().add_child(light_orb)
+		get_parent().add_child(light_orb)

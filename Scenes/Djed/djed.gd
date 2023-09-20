@@ -17,7 +17,7 @@ func shoot() -> void:
 		light_orb.global_position = marker.global_position
 		
 		# upgrade orb
-		light_orb.damage = (light_orb.damage + PlayerUpgrades.djed_extra_damage) * PlayerUpgrades.djed_damage_multiplier
+		light_orb.damage = ceil((light_orb.damage + PlayerUpgrades.djed_extra_damage) * PlayerUpgrades.djed_damage_multiplier)
 		light_orb.penetration += PlayerUpgrades.djed_penetration
 		light_orb.speed *= PlayerUpgrades.djed_bullet_speed_multiplier
 		

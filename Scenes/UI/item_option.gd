@@ -30,6 +30,7 @@ func set_info(item_info: Dictionary) -> void:
 
 
 func delete() -> void:
+	$Button.disabled = true
 	$AnimationPlayer.play("delete")
 
 

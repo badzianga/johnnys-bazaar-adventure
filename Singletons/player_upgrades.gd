@@ -8,6 +8,7 @@ var damage_multiplier := 1.0
 var extra_bullets := 0
 var penetration := 0
 var cooldown_reduce_sec := 0.0
+var cooldown_multiplier := 1.0
 var bullet_speed_multiplier := 1.0
 
 # djed-related upgrades

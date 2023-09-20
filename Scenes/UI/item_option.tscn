@@ -151,6 +151,7 @@ offset_right = 268.0
 offset_bottom = 568.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0.866667, 0.866667, 0.866667, 1)
 theme_override_font_sizes/font_size = 16
 text = "Buy"
 flat = true

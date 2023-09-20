@@ -68,7 +68,7 @@ func _play_animation(anim_name: String) -> void:
 func _upgrade_character() -> void:
 	health += PlayerUpgrades.max_health
 	speed *= PlayerUpgrades.speed_multiplier
-	$ShootCooldown.wait_time -= PlayerUpgrades.cooldown_reduce_sec
+	$ShootCooldown.wait_time = ($ShootCooldown.wait_time - PlayerUpgrades.cooldown_reduce_sec) * PlayerUpgrades.cooldown_multiplier
 
 
 func _shoot() -> void:
@@ -76,7 +76,7 @@ func _shoot() -> void:
 	light_orb.global_position = global_position
 
 	# upgrade orb
-	light_orb.damage = (light_orb.damage + PlayerUpgrades.extra_damage) * PlayerUpgrades.damage_multiplier
+	light_orb.damage = ceil((light_orb.damage + PlayerUpgrades.extra_damage) * PlayerUpgrades.damage_multiplier)
 	light_orb.penetration += PlayerUpgrades.penetration
 	light_orb.speed *= PlayerUpgrades.bullet_speed_multiplier
 	

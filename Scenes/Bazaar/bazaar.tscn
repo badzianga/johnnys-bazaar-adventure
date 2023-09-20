@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgx73p37ftjwh"]
+[gd_scene load_steps=7 format=3 uid="uid://dgx73p37ftjwh"]
 
 [ext_resource type="Script" path="res://Scenes/Bazaar/bazaar.gd" id="1_tprnu"]
 [ext_resource type="Texture2D" uid="uid://bkoyq27ongkjx" path="res://Assets/Environment/background.png" id="2_v8e4w"]
+[ext_resource type="Texture2D" uid="uid://vclams5rgvv3" path="res://Assets/HUD/nextwave.png" id="3_c13n7"]
+[ext_resource type="Texture2D" uid="uid://bnrxnfp2ewyof" path="res://Assets/Entities/ra.png" id="3_ix5ro"]
+[ext_resource type="Texture2D" uid="uid://yvd2s5l1qxba" path="res://Assets/HUD/coin_border.png" id="3_oai57"]
+[ext_resource type="Texture2D" uid="uid://cykqtlvbqps84" path="res://Assets/HUD/blank_sheet.png" id="5_eqpra"]
 
 [node name="Bazaar" type="CanvasLayer"]
 script = ExtResource("1_tprnu")
@@ -22,38 +26,108 @@ offset_right = 1600.0
 offset_bottom = 128.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 56
-text = "Bazaar"
+text = "Jojo's Bazaar Adventure"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CoinsLabel" type="Label" parent="Background"]
+[node name="CoinsBackground" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
-offset_right = 256.0
-offset_bottom = 88.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Coins: 0"
+offset_right = 232.0
+offset_bottom = 104.0
+texture = ExtResource("3_oai57")
+expand_mode = 1
 
-[node name="NextWaveButton" type="Button" parent="Background"]
+[node name="CoinsLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 45.0
+offset_right = 215.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="ButtonBackground" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_left = 1344.0
 offset_top = 40.0
 offset_right = 1560.0
 offset_bottom = 98.0
+texture = ExtResource("3_c13n7")
+expand_mode = 1
+
+[node name="NextWaveButton" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 1341.0
+offset_top = 36.0
+offset_right = 1557.0
+offset_bottom = 94.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.133333, 0.133333, 1)
 theme_override_font_sizes/font_size = 32
 text = "NEXT WAVE"
+flat = true
 
 [node name="Container" type="HBoxContainer" parent="Background"]
-custom_minimum_size = Vector2(1472, 600)
+custom_minimum_size = Vector2(1088, 600)
 layout_mode = 0
 offset_left = 64.0
 offset_top = 128.0
-offset_right = 1536.0
+offset_right = 1152.0
 offset_bottom = 728.0
-theme_override_constants/separation = 90
+theme_override_constants/separation = 64
+
+[node name="StatsBackground" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 136.0
+offset_right = 1600.0
+offset_bottom = 608.0
+texture = ExtResource("5_eqpra")
+expand_mode = 1
+
+[node name="StatsLabel" type="Label" parent="Background/StatsBackground"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 352.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Max health: 
+Movement speed:
+Damage:
+Projectiles:
+Penetration:
+Cooldown:
+Projectile speed:
+
+Djeds:
+Damage:
+Projectiles:
+Penetration:
+Cooldown:
+Projectile speed:"
+
+[node name="DjedLabel" type="Label" parent="Background/StatsBackground"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 236.0
+offset_right = 352.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "DJED UPGRADES"
+horizontal_alignment = 1
+
+[node name="Ra" type="Sprite2D" parent="."]
+position = Vector2(1448, 824)
+rotation = -0.322886
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ix5ro")
 
 [connection signal="pressed" from="Background/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

@@ -10,7 +10,7 @@ var current_wave := 1
 var coins := 0
 var player: CharacterBody2D
 var enemies: Array[Enemy]
-var purchased_upgrades: Array[StringName]
+var purchased_upgrades: Array[StringName] = [""]
 var coins_left := 0
 
 @onready var timer := $Timer
@@ -48,17 +48,58 @@ func upgrade_character(item_id: int) -> void:
 		1:
 			PlayerUpgrades.djeds += 1
 		2:
-			PlayerUpgrades.extra_damage += 5
+			PlayerUpgrades.djeds += 1
 		3:
-			PlayerUpgrades.extra_damage += 10
+			PlayerUpgrades.djed_extra_damage += 5
+			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
 		4:
-			PlayerUpgrades.extra_damage += 15
+			PlayerUpgrades.djed_extra_damage += 10
+			PlayerUpgrades.djed_penetration += 1
+			PlayerUpgrades.djed_extra_bullets += 1
 		5:
-			PlayerUpgrades.cooldown_reduce_sec += 0.1
+			PlayerUpgrades.djed_penetration += 1
+			PlayerUpgrades.djed_damage_multiplier += 0.1
+			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
 		6:
-			PlayerUpgrades.extra_bullets += 1
+			PlayerUpgrades.extra_damage += 5
 		7:
+			PlayerUpgrades.extra_damage += 10
+		8:
+			PlayerUpgrades.extra_damage += 10
+		9:
+			PlayerUpgrades.cooldown_reduce_sec += 0.15
+		10:
+			PlayerUpgrades.cooldown_reduce_sec += 0.1
+		11:
+			PlayerUpgrades.cooldown_reduce_sec += 0.2
+		12:
+			PlayerUpgrades.extra_bullets += 1
+			PlayerUpgrades.penetration += 1
+		13:
+			PlayerUpgrades.extra_bullets += 1
+			PlayerUpgrades.penetration += 1
+		14:
 			PlayerUpgrades.max_health += 5
+			PlayerUpgrades.speed_multiplier += 0.05
+		15:
+			PlayerUpgrades.max_health += 8
+			PlayerUpgrades.speed_multiplier += 0.1
+		16:
+			PlayerUpgrades.max_health += 10
+		17:
+			PlayerUpgrades.damage_multiplier += 0.08
+			PlayerUpgrades.djed_damage_multiplier += 0.08
+			PlayerUpgrades.bullet_speed_multiplier += 0.15
+			PlayerUpgrades.djed_bullet_speed_multiplier += 0.15
+			PlayerUpgrades.cooldown_multiplier -= 0.08
+			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
+		18:
+			PlayerUpgrades.damage_multiplier += 0.08
+			PlayerUpgrades.djed_damage_multiplier += 0.08
+			PlayerUpgrades.bullet_speed_multiplier += 0.15
+			PlayerUpgrades.djed_bullet_speed_multiplier += 0.15
+			PlayerUpgrades.cooldown_multiplier -= 0.08
+			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
 
 
 func remove_available_upgrade(item_id: int) -> void:
@@ -81,6 +122,7 @@ func reset_game() -> void:
 	coins = 0
 	player = null
 	purchased_upgrades.clear()
+	purchased_upgrades.append("")
 	back_to_world()
 
 

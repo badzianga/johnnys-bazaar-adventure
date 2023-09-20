@@ -1,7 +1,7 @@
 extends Node
 
 
-const WAVE_TIMES: Array[int] = [0, 30, 30, 35, 40, 50]
+const WAVE_TIMES: Array[int] = [0, 15, 20, 35, 40, 50]
 const BazaarScene := preload("res://Scenes/Bazaar/bazaar.tscn")
 const WorldScene := preload("res://Scenes/World/test_world.tscn")
 const ResultScreenScene := preload("res://Scenes/ResultScreen/result_screen.tscn")
@@ -11,6 +11,7 @@ var coins := 0
 var player: CharacterBody2D
 var enemies: Array[Enemy]
 var purchased_upgrades: Array[StringName]
+var coins_left := 0
 
 @onready var timer := $Timer
 @onready var music_player := $MusicPlayer
@@ -81,10 +82,15 @@ func reset_game() -> void:
 	player = null
 	purchased_upgrades.clear()
 	back_to_world()
-	
+
+
+func _retrieve_coins_left() -> void:
+	coins_left = get_tree().get_first_node_in_group("Loot").get_child_count()
 
 
 func _on_timer_timeout() -> void:
+	_retrieve_coins_left()
+	
 	current_wave += 1
 	if current_wave >= len(WAVE_TIMES):
 		go_to_result_screen()

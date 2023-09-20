@@ -4,6 +4,8 @@ extends TextureRect
 
 signal item_purchased(item_option: ItemOption)
 
+var data: Dictionary  # too lazy, memory will suffer from it but I don't have much time
+
 var item_id: int
 var item_name: StringName
 var price: int
@@ -17,6 +19,7 @@ func display(delayed: bool) -> void:
 
 
 func set_info(item_info: Dictionary) -> void:
+	data = item_info
 	$Icon.texture = load("res://Assets/Items/" + item_info["Icon"])
 	item_name = item_info["Name"]
 	$Name.text = item_name

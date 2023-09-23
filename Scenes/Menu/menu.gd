@@ -6,7 +6,7 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed() -> void:
-	GameController.back_to_world()
+	GameController.show_intro()
 
 
 func _on_exit_button_pressed() -> void:

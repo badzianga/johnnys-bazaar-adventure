@@ -82,7 +82,7 @@ height = 170.0
 [node name="Dog" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_8gha7")
-max_health = 16
+max_health = 25
 speed = 200.0
 damage = 3
 gold_min = 1

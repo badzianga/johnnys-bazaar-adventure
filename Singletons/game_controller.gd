@@ -1,7 +1,7 @@
 extends Node
 
 
-const WAVE_TIMES: Array[int] = [0, 15, 20, 30, 30, 45]
+const WAVE_TIMES: Array[int] = [0, 3, 60, 60, 60, 60, 60, 60, 60, 60, 60]
 const music_streams := {
 	&"bazaar": preload("res://Assets/Music/istanbul-dreams.mp3"),
 	&"wave": preload("res://Assets/Music/belly-dance.mp3"),

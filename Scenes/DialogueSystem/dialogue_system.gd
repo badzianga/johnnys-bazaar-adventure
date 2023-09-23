@@ -50,7 +50,6 @@ func _next_phrase() -> void:
 		return
 
 	_finished = false
-	
 	_name_label.bbcode_text = _dialog[_phrase_number]["Name"]
 	_text_label.bbcode_text = _dialog[_phrase_number]["Text"]
 	name_changed.emit(_dialog[_phrase_number]["Name"])

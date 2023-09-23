@@ -18,9 +18,12 @@ func _on_name_changed(actor_name: String) -> void:
 	if actor_name == "Ra":
 		ra.visible = true
 		player.visible = false
-	else:
+	elif actor_name == "Player":
 		ra.visible = false
 		player.visible = true
+	else:
+		ra.visible = false
+		player.visible = false
 
 
 func _on_dialogue_system_tree_exited() -> void:

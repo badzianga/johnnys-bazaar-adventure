@@ -80,9 +80,10 @@ radius = 33.0
 height = 116.0
 
 [node name="Mummy" type="CharacterBody2D"]
+position = Vector2(0, 1)
 motion_mode = 1
 script = ExtResource("1_qmymo")
-max_health = 25
+max_health = 40
 damage = 5
 gold_min = 2
 gold_max = 4

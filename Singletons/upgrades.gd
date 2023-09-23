@@ -5,7 +5,7 @@ var upgrades := [
 	{
 		"Name": "Djed",
 		"Description": "Spawns a pillar which shoots a projectile dealing 5 damage every 1.6 seconds.",
-		"Price": 6,
+		"Price": 26,
 		"Icon": "djed.png",
 		"Requirement": "",
 		"Id": 0,
@@ -13,7 +13,7 @@ var upgrades := [
 	{
 		"Name": "Extra Djed I",
 		"Description": "Spawns an extra Djed.",
-		"Price": 12,
+		"Price": 32,
 		"Icon": "djed.png",
 		"Requirement": "Djed",
 		"Id": 1,
@@ -21,7 +21,7 @@ var upgrades := [
 	{
 		"Name": "Extra Djed II",
 		"Description": "Spawns an extra Djed.",
-		"Price": 28,
+		"Price": 48,
 		"Icon": "djed.png",
 		"Requirement": "Extra Djed I",
 		"Id": 2,
@@ -29,7 +29,7 @@ var upgrades := [
 	{
 		"Name": "Djed Upgrade I",
 		"Description": "Increases Djed damage by 5. Decreases Djed cooldown by 8%.",
-		"Price": 10,
+		"Price": 30,
 		"Icon": "djed.png",
 		"Requirement": "Djed",
 		"Id": 3,
@@ -37,7 +37,7 @@ var upgrades := [
 	{
 		"Name": "Djed Upgrade II",
 		"Description": "Increases Djed damage by 10 and Djed bullet penetration by 1. Djed shoots an extra bullet.",
-		"Price": 18,
+		"Price": 38,
 		"Icon": "djed.png",
 		"Requirement": "Djed Upgrade I",
 		"Id": 4,
@@ -45,7 +45,7 @@ var upgrades := [
 	{
 		"Name": "Djed Upgrade III",
 		"Description": "Increases Djed bullet penetration by 1 and damage by 10%. Decreases Djed cooldown by 8%.",
-		"Price": 32,
+		"Price": 52,
 		"Icon": "djed.png",
 		"Requirement": "Djed Upgrade II",
 		"Id": 5,
@@ -53,7 +53,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - damage I",
 		"Description": "Increases damage by 5.",
-		"Price": 3,
+		"Price": 7,
 		"Icon": "ra_scroll.png",
 		"Requirement": "",
 		"Id": 6,
@@ -61,7 +61,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - damage II",
 		"Description": "Increases damage by 10.",
-		"Price": 10,
+		"Price": 15,
 		"Icon": "ra_scroll.png",
 		"Requirement": "Scroll of Ra - damage I",
 		"Id": 7,
@@ -69,7 +69,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - damage III",
 		"Description": "Increases damage by 10.",
-		"Price": 18,
+		"Price": 25,
 		"Icon": "ra_scroll.png",
 		"Requirement": "Scroll of Ra - damage II",
 		"Id": 8,
@@ -77,7 +77,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - cooldown I",
 		"Description": "Reduces cooldown by 0.15 second.",
-		"Price": 5,
+		"Price": 12,
 		"Icon": "ra_scroll.png",
 		"Requirement": "",
 		"Id": 9,
@@ -85,7 +85,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - cooldown II",
 		"Description": "Reduces cooldown by 0.1 second.",
-		"Price": 12,
+		"Price": 17,
 		"Icon": "ra_scroll.png",
 		"Requirement": "Scroll of Ra - cooldown I",
 		"Id": 10,
@@ -101,7 +101,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - orb upgrade I",
 		"Description": "Shoots and extra light orb. Light orbs penetrate 1 more enemy.",
-		"Price": 8,
+		"Price": 16,
 		"Icon": "ra_scroll.png",
 		"Requirement": "",
 		"Id": 12,
@@ -109,7 +109,7 @@ var upgrades := [
 	{
 		"Name": "Scroll of Ra - orb upgrade II",
 		"Description": "Shoots and extra light orb. Light orbs penetrate 1 more enemy.",
-		"Price": 20,
+		"Price": 24,
 		"Icon": "ra_scroll.png",
 		"Requirement": "Scroll of Ra - orb upgrade I",
 		"Id": 13,
@@ -141,7 +141,7 @@ var upgrades := [
 	{
 		"Name": "Hathor Symbol I",
 		"Description": "Increases all damage by 8% and all bullet speed by 15%. Reduces all cooldown by 8%.",
-		"Price": 7,
+		"Price": 17,
 		"Icon": "hathor.png",
 		"Requirement": "",
 		"Id": 17,
@@ -149,7 +149,7 @@ var upgrades := [
 	{
 		"Name": "Hathor Symbol II",
 		"Description": "Increases all damage by 8% and all bullet speed by 15%. Reduces all cooldown by 8%.",
-		"Price": 20,
+		"Price": 27,
 		"Icon": "hathor.png",
 		"Requirement": "Hathor Symbol I",
 		"Id": 18,
@@ -165,7 +165,7 @@ var upgrades := [
 	{
 		"Name": "Horus Necklace - Scroll",
 		"Description": "Increases Scroll damage by 15% and penetrates 1 more enemy.",
-		"Price": 15,
+		"Price": 25,
 		"Icon": "horus_necklace.png",
 		"Requirement": "Scroll of Ra - damage II",
 		"Id": 20,

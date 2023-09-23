@@ -24,7 +24,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_indicator.visible = _finished
-	print(_finished)
 	if Input.is_action_just_pressed("accept"):
 		if _finished:
 			_next_phrase()

@@ -95,7 +95,7 @@ func _spawn_indicator(value: int) -> void:
 	indicator.text = str(value)
 	indicator.scale *= 1.2
 	indicator.play_anim()
-	get_tree().get_root().add_child(indicator)
+	get_parent().add_child(indicator)
 
 
 func _make_invincible() -> void:

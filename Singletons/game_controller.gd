@@ -1,7 +1,7 @@
 extends Node
 
 
-const WAVE_TIMES: Array[int] = [0, 3, 60, 60, 60, 60, 60, 60, 60, 60, 60]
+const WAVE_TIMES: Array[int] = [0, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60]
 const music_streams := {
 	&"bazaar": preload("res://Assets/Music/istanbul-dreams.mp3"),
 	&"wave": preload("res://Assets/Music/belly-dance.mp3"),
@@ -64,7 +64,7 @@ func upgrade_character(item_id: int) -> void:
 			PlayerUpgrades.djeds += 1
 		3:
 			PlayerUpgrades.djed_extra_damage += 5
-			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
+			PlayerUpgrades.djed_cooldown_multiplier += 0.08
 		4:
 			PlayerUpgrades.djed_extra_damage += 10
 			PlayerUpgrades.djed_penetration += 1
@@ -72,7 +72,7 @@ func upgrade_character(item_id: int) -> void:
 		5:
 			PlayerUpgrades.djed_penetration += 1
 			PlayerUpgrades.djed_damage_multiplier += 0.1
-			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
+			PlayerUpgrades.djed_cooldown_multiplier += 0.08
 		6:
 			PlayerUpgrades.extra_damage += 5
 		7:
@@ -105,14 +105,14 @@ func upgrade_character(item_id: int) -> void:
 			PlayerUpgrades.bullet_speed_multiplier += 0.15
 			PlayerUpgrades.djed_bullet_speed_multiplier += 0.15
 			PlayerUpgrades.cooldown_multiplier -= 0.08
-			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
+			PlayerUpgrades.djed_cooldown_multiplier += 0.08
 		18:
 			PlayerUpgrades.damage_multiplier += 0.08
 			PlayerUpgrades.djed_damage_multiplier += 0.08
 			PlayerUpgrades.bullet_speed_multiplier += 0.15
 			PlayerUpgrades.djed_bullet_speed_multiplier += 0.15
 			PlayerUpgrades.cooldown_multiplier -= 0.08
-			PlayerUpgrades.djed_cooldown_multiplier -= 0.08
+			PlayerUpgrades.djed_cooldown_multiplier += 0.08
 		19:
 			PlayerUpgrades.djed_damage_multiplier += 0.15
 			PlayerUpgrades.djed_penetration += 1

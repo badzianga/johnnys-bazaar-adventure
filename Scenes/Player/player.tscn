@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6v03feqk1tb3"]
+[gd_scene load_steps=17 format=3 uid="uid://c6v03feqk1tb3"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_x8cn5"]
 [ext_resource type="Texture2D" uid="uid://wc7xyco7ccd2" path="res://Assets/Entities/player.png" id="2_m04sv"]
 [ext_resource type="Shader" path="res://Resources/Shaders/only_flash.gdshader" id="3_u2r8x"]
+[ext_resource type="AudioStream" uid="uid://xpte00w14ypu" path="res://Assets/SFX/shoot.mp3" id="4_3vihu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0q4pi"]
 shader = ExtResource("3_u2r8x")
@@ -216,6 +217,11 @@ position = Vector2(0, -432)
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3vihu")
+volume_db = -10.0
+bus = &"Sounds"
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

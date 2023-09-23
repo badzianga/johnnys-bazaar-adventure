@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqeftpt6velw6"]
+[gd_scene load_steps=17 format=3 uid="uid://bqeftpt6velw6"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy.gd" id="1_qmymo"]
 [ext_resource type="Texture2D" uid="uid://pir44mu6ljs" path="res://Assets/Entities/mummy.png" id="2_dnb0p"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c3cnagatm70qu" path="res://Scenes/EnemyComponents/velocity_component.tscn" id="4_awtdv"]
 [ext_resource type="PackedScene" uid="uid://et20dn5wcy5r" path="res://Scenes/EnemyComponents/hurtbox.tscn" id="5_75867"]
 [ext_resource type="PackedScene" uid="uid://bxjc0fqwygd20" path="res://Scenes/EnemyComponents/hitbox.tscn" id="6_8sh2x"]
+[ext_resource type="AudioStream" uid="uid://u2tw7amfvtja" path="res://Assets/SFX/hit.mp3" id="9_exjrq"]
 
 [sub_resource type="Animation" id="Animation_nkjor"]
 length = 0.001
@@ -130,3 +131,7 @@ debug_color = Color(1, 0, 0.109804, 0.419608)
 
 [node name="IndicatorMarker" type="Marker2D" parent="."]
 position = Vector2(0, -189)
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_exjrq")
+bus = &"Sounds"

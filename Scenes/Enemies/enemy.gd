@@ -17,6 +17,7 @@ const DamageIndicatorScene := preload("res://Scenes/Misc/damage_indicator.tscn")
 @onready var _animation_player := $Sprite/AnimationPlayer
 @onready var _effects := $Sprite/Effects
 @onready var indicator_marker := $IndicatorMarker
+@onready var hit_sound := $HitSound
 
 
 func _ready() -> void:
@@ -57,6 +58,8 @@ func _spawn_coins() -> void:
 
 func _on_health_changed(amount: int) -> void:
 	_effects.play("hurt")
+	hit_sound.pitch_scale = randf_range(0.8, 1.2)
+	hit_sound.play()
 	var indicator := DamageIndicatorScene.instantiate()
 	indicator.global_position = indicator_marker.global_position
 	indicator.text = str(amount)

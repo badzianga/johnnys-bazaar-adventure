@@ -19,6 +19,7 @@ var _orbs_to_shoot := 0
 @onready var hurt_effect := $Sprite2D/HurtEffect
 @onready var indicator_marker := $IndicatorMarker
 @onready var hurtbox_collider := $Hurtbox/CollisionShape2D
+@onready var shoot_sound := $ShootSound
 
 
 func _ready() -> void:
@@ -87,6 +88,8 @@ func _shoot() -> void:
 	else:
 		light_orb.direction = Vector2.from_angle(randf_range(0.0, TAU))
 	get_parent().add_child(light_orb)
+	shoot_sound.pitch_scale = randf_range(0.8, 1.2)
+	shoot_sound.play()
 
 
 func _spawn_indicator(value: int) -> void:

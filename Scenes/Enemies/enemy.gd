@@ -64,7 +64,7 @@ func _on_health_changed(amount: int) -> void:
 	indicator.global_position = indicator_marker.global_position
 	indicator.text = str(amount)
 	indicator.play_anim()
-	get_tree().get_root().add_child(indicator)
+	get_parent().add_child(indicator)
 
 
 func _on_health_depleted() -> void:

@@ -36,6 +36,7 @@ texture_progress = ExtResource("3_2h43a")
 texture_progress_offset = Vector2(44, 38)
 
 [node name="WaveCoinsBackground" type="TextureRect" parent="Control"]
+layout_mode = 0
 offset_left = 1280.0
 offset_top = 88.0
 offset_right = 1576.0

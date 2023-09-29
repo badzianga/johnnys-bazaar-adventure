@@ -11,6 +11,10 @@ var item_name: StringName
 var price: int
 
 
+func _ready() -> void:
+	modulate = Color(1.0, 1.0, 1.0, 0.0)
+
+
 func display(delayed: bool) -> void:
 	if delayed:
 		$AnimationPlayer.play("add_delayed")

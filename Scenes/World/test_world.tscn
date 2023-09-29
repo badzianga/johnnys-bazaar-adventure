@@ -271,6 +271,7 @@ position = Vector2(2496, 2496)
 shape = SubResource("WorldBoundaryShape2D_wbn7u")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_cty63")]
+y_sort_enabled = true
 waves = Array[ExtResource("3_qgjlm")]([SubResource("Resource_jjths"), SubResource("Resource_d7tox"), SubResource("Resource_0tgp3"), SubResource("Resource_bgemj"), SubResource("Resource_yw4yr"), SubResource("Resource_5yu3q"), SubResource("Resource_cu15b"), SubResource("Resource_wc1ap"), SubResource("Resource_b8nhk"), SubResource("Resource_bvxc2"), SubResource("Resource_lmgb5"), SubResource("Resource_ghgjl"), SubResource("Resource_2litv"), SubResource("Resource_h36in"), SubResource("Resource_uel2x"), SubResource("Resource_7prrg"), SubResource("Resource_gjoyp"), SubResource("Resource_afmve"), SubResource("Resource_b6nbt"), SubResource("Resource_60473"), SubResource("Resource_ureqx"), SubResource("Resource_kotet"), SubResource("Resource_bnc3f"), SubResource("Resource_qp61d"), SubResource("Resource_alkty"), SubResource("Resource_fskvc"), SubResource("Resource_lv70r")])
 
 [node name="Player" parent="." instance=ExtResource("2_3cp8h")]

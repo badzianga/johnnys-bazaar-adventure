@@ -67,5 +67,16 @@ theme_override_font_sizes/font_size = 56
 text = "EXIT"
 flat = true
 
+[node name="Fullscreen" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 816.0
+offset_right = 208.0
+offset_bottom = 880.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="toggled" from="Fullscreen" to="." method="_on_fullscreen_toggled"]
